@@ -153,6 +153,10 @@ body-home {
     font-family: $fonte-titulo;
 }
 
+h1 {
+    font-size: 50px;
+}
+
 .landing-page {
     background-image: url('');
     background-position: center;
@@ -161,5 +165,10 @@ body-home {
 }
 
 .logo {
+    background-image: url('../images/diamond.svg');
+    background-repeat: no-repeat;
+    display: block;
+    height: 100px;
+    margin: 0 auto;
     width: 100px;
 }
