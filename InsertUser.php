@@ -1,14 +1,15 @@
 <?php
 
-require_once 'assets/php/classLogin.php';
+require_once 'assets/php/classUsuario.php';
 
-$login = new Login();
+$user = new Usuario();
 
 if (isset($_POST['action'])){
-  $login->setEmail($_POST['email']);
-  $senha = sha1($_POST['senha']);
-  $login->setSenha($senha);
-  $login->insert();
+  $user->setNome($_POST['nome']);
+  $user->setAltura($_POST['altura']);
+  $user->setPeso($_POST['peso']);
+  $user->setData($_POST['data']);
+  $user->insert();
 }
 
 ?>
@@ -39,16 +40,24 @@ if (isset($_POST['action'])){
   <main class="landing-page">
 
     <div class="container">
-      <form method="post" action="login.php" class="login" id='login'>
+      <form method="post" action="insertUser.php" class="login" id='login'>
         <div class="form-group">
-          <label for="exampleInputEmail1">Email address</label>
-          <input type="email" id="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-            placeholder="Enter email">
+          <label for="exampleInputEmail1">Nome</label>
+          <input type="name" id="nome" name="nome" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+            placeholder="Enter nome">
           <small id="emailHelp" class="form-text text-muted"></small>
         </div>
         <div class="form-group">
-          <label for="exampleInputPassword1">Senha</label>
-          <input type="password" id="senha" name="senha" class="form-control" id="exampleInputPassword1" placeholder="Password">
+          <label for="exampleInputPassword1">Altura</label>
+          <input type="number" id="altura" name="altura" class="form-control" id="exampleInputPassword1" placeholder="Password">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Peso</label>
+          <input type="number" id="peso" name="peso" class="form-control" id="exampleInputPassword1" placeholder="Password">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Data</label>
+          <input type="date" id="data" name="data" class="form-control" id="exampleInputPassword1" placeholder="Password">
         </div>
         <div class="form-check">
           <input type="checkbox" class="form-check-input" id="exampleCheck1">

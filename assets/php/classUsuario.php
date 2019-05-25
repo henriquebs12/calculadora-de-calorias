@@ -8,7 +8,7 @@ class Usuario{
 	 private $nome;
 	 private $altura;
 	 private $peso;
-	 private $data;
+	 private $data_nasc;
 
 	 public function __construct(){
 		$database = new Database();
@@ -33,7 +33,7 @@ class Usuario{
 	}
 
 	public function getData(){
-		return $this->data;
+		return $this->data_nasc;
 	}
 
 	public function setId($id){
@@ -52,17 +52,17 @@ class Usuario{
 		$this->peso = $peso;
 	}
 
-	public function setData($data){
-		$this->data = $data;
+	public function setData($data_nasc){
+		$this->data_nasc = $data_nasc;
 	}
 
 	public function insert(){
 		try{
-			$stmt = $this->conn->prepare("INSERT INTO Usuario(nome, altura, peso, data) VALUES(:nome, :altura, :peso, :data)");
+			$stmt = $this->conn->prepare("INSERT INTO Usuario(nome, altura, peso, data_nasc) VALUES(:nome, :altura, :peso, :data_nasc)");
 			$stmt->bindParam(":nome", $this->nome);
 			$stmt->bindParam(":altura", $this->altura);
 			$stmt->bindParam(":peso", $this->peso);
-			$stmt->bindParam(":data", $this->data);
+			$stmt->bindParam(":data_nasc", $this->data_nasc);
 			$stmt->execute();
 			return 1;
 		}catch(PDOException $e){
@@ -73,12 +73,12 @@ class Usuario{
 
 	public function edit(){
 		try{
-			$stmt = $this->conn->prepare("UPDATE Usuario SET nome = :nome, altura = :altura, peso = :peso, data = :data WHERE id = :id");
+			$stmt = $this->conn->prepare("UPDATE Usuario SET nome = :nome, altura = :altura, peso = :peso, data_nasc= :data_nasc WHERE id = :id");
 			$stmt->bindParam(":id", $this->id);
 			$stmt->bindParam(":nome", $this->nome);
 			$stmt->bindParam(":altura", $this->altura);
 			$stmt->bindParam(":peso", $this->peso);
-			$stmt->bindParam(":data", $this->data);		
+			$stmt->bindParam(":data_nasc", $this->data_nasc);		
 			$stmt->execute();
 			return 1;
 		}catch(PDOException $e){
