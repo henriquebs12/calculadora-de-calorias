@@ -4,7 +4,12 @@ require_once 'assets/php/classLogin.php';
 
 $login = new Login();
 
-
+if (isset($_POST['action'])){
+  $login->setEmail($_POST['email']);
+  $senha = sha1($_POST['senha']);
+  $login->setSenha($senha);
+  $login->insert();
+}
 
 ?>
 <!doctype html>
@@ -34,21 +39,22 @@ $login = new Login();
   <main class="landing-page">
 
     <div class="container">
-      <form>
+      <form method="post" action="login.php" class="login" id='login'>
         <div class="form-group">
           <label for="exampleInputEmail1">Email address</label>
-          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+          <input type="email" id="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
             placeholder="Enter email">
           <small id="emailHelp" class="form-text text-muted"></small>
         </div>
         <div class="form-group">
           <label for="exampleInputPassword1">Senha</label>
-          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+          <input type="password" id="senha" name="senha" class="form-control" id="exampleInputPassword1" placeholder="Password">
         </div>
         <div class="form-check">
           <input type="checkbox" class="form-check-input" id="exampleCheck1">
           <label class="form-check-label" for="exampleCheck1">Lembrar senha</label>
         </div>
+        <input type="hidden" name="action" value="insert">
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
   </main>
