@@ -1,12 +1,3 @@
-<?php
-
-require_once 'assets/php/classLogin.php';
-
-$login = new Login();
-
-
-
-?>
 <!doctype html>
 <html lang="pt-BR">
 
@@ -27,10 +18,12 @@ $login = new Login();
 </head>
 
 <body class="body-home">
+  <div class="logo-container mt-5">
+    <span class="logo"></span>
+    <h1 class="text-center mt-5">Mais controle.<br>
+      Menos preocupação.</h1>
 
-  <img class="logo" src="assets/images/diamond.svg" alt="">
-  <h3 class="text-center">Mais controle.<br>
-    Menos preocupação.</h3>
+  </div>
   <main class="landing-page">
 
     <div class="container">
