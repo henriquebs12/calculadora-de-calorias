@@ -1,0 +1,19 @@
+INSERT INTO `Usuario` VALUES 
+
+("Sophia",144,64,"1982-12-02"),("Clayton",205,114,"1993-07-17"),("Latifah",201,67,"1942-02-18"),("Emi",203,103,"1983-05-17"),("Macaulay",168,92,"1991-09-04"),("Aristotle",202,83,"1930-06-11"),("Luke",179,97,"1971-05-17"),("Andrew",180,64,"2003-05-19"),("Nelle",185,70,"1989-02-08"),("Dominic",205,90,"1998-10-29"),
+("Norman",154,75,"2000-07-18"),("Gray",162,47,"2006-07-21"),("Ann",157,48,"2003-10-01"),("Cleo",167,114,"1944-04-14"),("Dean",166,60,"1982-04-26"),("Lester",189,119,"1995-08-16"),("Russell",160,55,"2001-09-05"),("Curran",151,52,"1914-03-25"),("Zenaida",155,63,"2004-04-25"),("Isadora",193,103,"1985-01-10"),
+("Hilary",155,55,"2006-05-09"),("Slade",191,74,"1924-05-12"),("Kellie",150,94,"1997-11-03"),("Cora",174,62,"1992-06-02"),("Angelica",160,67,"2005-04-17"),("Zenia",202,98,"1930-07-01"),("Oleg",173,68,"1964-09-03"),("Dean",195,101,"1956-01-27"),("Rachel",140,118,"1943-01-12"),("Madeline",162,90,"1967-04-19"),
+("Elijah",187,75,"2000-03-04"),("Silas",183,43,"1951-03-03"),("Walter",179,57,"1962-09-14"),("Lucy",141,102,"1922-07-09"),("Brenden",144,79,"2003-04-12"),("Cherokee",198,47,"1931-08-27"),("Katelyn",200,65,"1982-01-01"),("Orson",145,74,"2004-12-15"),("Anthony",160,68,"1988-11-21"),("Laura",183,101,"1992-11-17"),
+("Geoffrey",168,98,"1972-04-16"),("Ishmael",147,74,"1982-02-09"),("Chelsea",194,103,"1947-01-28"),("Brynn",179,80,"1978-12-13"),("Daphne",160,93,"1938-08-30"),("Jocelyn",174,58,"1931-01-05"),("Leandra",166,58,"1975-02-25"),("Maite",148,50,"1930-10-30"),("Damian",141,50,"1942-04-30"),("Whoopi",141,36,"2003-04-03");
+
+
+
+INSERT INTO `Login` VALUES 
+
+("et.eros@tinciduntdui.net",6746),("amet.massa@varius.org",77108),("lacus@Suspendissetristique.edu",95370),("egestas@antedictummi.ca",91506),("sociis.natoque.penatibus@Suspendissecommodotincidunt.co.uk",624),("Vestibulum.ante.ipsum@aliquam.edu",77241),("erat@ipsumnonarcu.org",62250),("ac.orci@id.org",96592),("ligula@libero.co.uk",14242),("rhoncus@justo.ca",22134),
+("accumsan.neque@utcursusluctus.co.uk",6281),("erat.volutpat.Nulla@aliquam.edu",59885),("Praesent.interdum@cursus.com",44048),("auctor.vitae@consequatauctor.com",39659),("magna.malesuada.vel@necenim.net",33176),("amet.lorem.semper@sedsemegestas.com",52268),("Donec.vitae@magnaa.edu",88395),("mauris.sapien.cursus@ornareFusce.net",85285),("porttitor@estNunclaoreet.org",65941),("purus@erat.ca",39412),
+("Donec.tempor@eu.co.uk",46965),("Etiam.vestibulum@blanditat.ca",62060),("Duis@idante.net",86805),("ligula.tortor@parturientmontes.edu",74194),("cursus@non.com",79506),("cursus.purus@nec.net",39477),("sed.orci.lobortis@semmagna.net",71222),("lobortis.mauris@ornare.co.uk",12597),("odio.Aliquam.vulputate@Suspendisseac.edu",86973),("ultricies.ligula@posuere.ca",62767),
+("molestie.dapibus@sollicitudinorci.co.uk",43134),("adipiscing@Fuscefermentum.net",17533),("eu.tellus.Phasellus@arcuvelquam.edu",89356),("adipiscing.enim@commodo.co.uk",42159),("lorem.eget@molestiearcu.edu",22),("quam@magna.ca",87985),("blandit@nonbibendum.org",98035),("pede.Suspendisse.dui@risusNulla.ca",82199),("a@semper.net",68353),("eget.mollis.lectus@felis.edu",30053),
+("augue@ornareegestasligula.com",46097),("tellus.justo@malesuada.org",49365),("aliquam@pedemalesuadavel.com",87144),("facilisis.Suspendisse.commodo@Crasinterdum.co.uk",86534),("cursus.purus.Nullam@ipsumporta.edu",63301),("eu.eros.Nam@euturpis.com",71000),("in.hendrerit@semutcursus.org",18556),("Phasellus.vitae.mauris@a.ca",98180),("felis.adipiscing@elitpellentesquea.org",87544),("vitae.risus@quis.net",95598);
+
+
