@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 -- Estrutura da tabela `alimento`
 --
 
-CREATE DATABASE bbcal;
+CREATE DATABASE IF NOT EXISTS bbcal;
 USE bbcal;
 
 CREATE TABLE IF NOT EXISTS `Alimento` (
@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS `Alimento` (
   `teor_limpidico` FLOAT NOT NULL,
   `teor_fibroso` FLOAT NOT NULL,
   `Usuario_idUsuario` INT NOT NULL,
-  `TipoAlimento_idCategoria` INT NOT NULL,
+  `TipoAlimento_idTipo` INT NOT NULL,
   PRIMARY KEY (`idAlimento`))
 ENGINE = InnoDB;
 
@@ -71,24 +71,20 @@ ENGINE = InnoDB;
 
 
 ALTER TABLE `Login`
-	ADD CONSTRAINT `fk_Login_Usuario1`
+  ADD CONSTRAINT `fk_Login_Usuario1`
     FOREIGN KEY (`Usuario_idUsuario`)
     REFERENCES `Usuario` (`idUsuario`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION;
 
 ALTER TABLE `Alimento`
-	ADD CONSTRAINT `fk_Alimento_TipoAlimento1`
-    FOREIGN KEY (`TipoAlimento_idCategoria`)
+  ADD CONSTRAINT `fk_Alimento_TipoAlimento1`
+    FOREIGN KEY (`TipoAlimento_idTipo`)
     REFERENCES `TipoAlimento` (`idCategoria`)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION;
+  ON UPDATE NO ACTION;
     
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-
-
-
-
