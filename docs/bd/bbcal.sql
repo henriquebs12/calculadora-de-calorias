@@ -22,161 +22,73 @@ SET time_zone = "+00:00";
 -- Database: `bbcal`
 --
 
--- --------------------------------------------------------
-
---
 -- Estrutura da tabela `alimento`
 --
 
-CREATE TABLE `alimento` (
-  `idAlimento` int(11) NOT NULL,
-  `nome` varchar(45) NOT NULL,
-  `valor_cal` float NOT NULL,
-  `quantidade_proteina` float NOT NULL,
-  `quantidade_carboidrato` float NOT NULL,
-  `porcao` int(11) NOT NULL,
-  `teor_limpidico` float NOT NULL,
-  `teor_fibroso` float NOT NULL,
-  `Usuario_idUsuario` int(11) NOT NULL,
-  `TipoAlimento_idCategoria` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+CREATE DATABASE bbcal;
+USE bbcal;
 
---
--- Extraindo dados da tabela `alimento`
---
+CREATE TABLE IF NOT EXISTS `Alimento` (
+  `idAlimento` INT NOT NULL AUTO_INCREMENT,
+  `nome` VARCHAR(45) NOT NULL,
+  `valor_cal` FLOAT NOT NULL,
+  `quantidade_proteina` FLOAT NOT NULL,
+  `quantidade_carboidrato` FLOAT NOT NULL,
+  `porcao` INT NOT NULL,
+  `teor_limpidico` FLOAT NOT NULL,
+  `teor_fibroso` FLOAT NOT NULL,
+  `Usuario_idUsuario` INT NOT NULL,
+  `TipoAlimento_idCategoria` INT NOT NULL,
+  PRIMARY KEY (`idAlimento`))
+ENGINE = InnoDB;
 
-INSERT INTO `alimento` (`idAlimento`, `nome`, `valor_cal`, `quantidade_proteina`, `quantidade_carboidrato`, `porcao`, `teor_limpidico`, `teor_fibroso`, `Usuario_idUsuario`, `TipoAlimento_idCategoria`) VALUES
-(1, 'Leite', 42, 3.4, 5, 100, 1, 0, 1, 1);
+CREATE TABLE IF NOT EXISTS `Login`(
+  `idLogin` INT NOT NULL AUTO_INCREMENT,
+  `email` VARCHAR(100) NOT NULL,
+  `senha` VARCHAR(45) NOT NULL,
+  `Usuario_idUsuario` INT NOT NULL,
+  PRIMARY KEY (`idLogin`))
+ENGINE = InnoDB;
 
--- --------------------------------------------------------
 
---
--- Estrutura da tabela `login`
---
 
-CREATE TABLE `login` (
-  `idLogin` int(11) NOT NULL,
-  `email` varchar(100) NOT NULL,
-  `senha` varchar(45) DEFAULT NULL,
-  `Usuario_idUsuario` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+CREATE TABLE IF NOT EXISTS `TipoAlimento` (
+  `idCategoria` INT NOT NULL AUTO_INCREMENT,
+  `Categoria` VARCHAR(100) NOT NULL,
+  PRIMARY KEY (`idCategoria`))
+ENGINE = InnoDB;
 
---
--- Extraindo dados da tabela `login`
---
 
-INSERT INTO `login` (`idLogin`, `email`, `senha`, `Usuario_idUsuario`) VALUES
-(2, 'lucas@google.com', 'a1b2c3d4', 1);
+CREATE TABLE IF NOT EXISTS `Usuario` (
+  `idUsuario` INT NOT NULL AUTO_INCREMENT,
+  `nome` VARCHAR(50) NOT NULL,
+  `altura` FLOAT NOT NULL,
+  `peso` FLOAT NOT NULL,
+  `data_nasc` DATE NOT NULL,
+  `genero` VARCHAR(1),
+  PRIMARY KEY (`idUsuario`))
+ENGINE = InnoDB;
 
--- --------------------------------------------------------
 
---
--- Estrutura da tabela `tipoalimento`
---
+ALTER TABLE `Login`
+	ADD CONSTRAINT `fk_Login_Usuario1`
+    FOREIGN KEY (`Usuario_idUsuario`)
+    REFERENCES `Usuario` (`idUsuario`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION;
 
-CREATE TABLE `tipoalimento` (
-  `idCategoria` int(11) NOT NULL,
-  `Categoria` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Extraindo dados da tabela `tipoalimento`
---
-
-INSERT INTO `tipoalimento` (`idCategoria`, `Categoria`) VALUES
-(1, 'Alimento líquido');
-
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `usuario`
---
-
-CREATE TABLE `usuario` (
-  `idUsuario` int(11) NOT NULL,
-  `nome` varchar(50) NOT NULL,
-  `altura` float NOT NULL,
-  `peso` float NOT NULL,
-  `data_nasc` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Extraindo dados da tabela `usuario`
---
-
-INSERT INTO `usuario` (`idUsuario`, `nome`, `altura`, `peso`, `data_nasc`) VALUES
-(1, 'Lucas', 1.8, 79, '1998-03-13');
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `alimento`
---
-ALTER TABLE `alimento`
-  ADD PRIMARY KEY (`idAlimento`),
-  ADD KEY `fk_Alimento_Usuario1` (`Usuario_idUsuario`),
-  ADD KEY `fk_Alimento_TipoAlimento1` (`TipoAlimento_idCategoria`);
-
---
--- Indexes for table `login`
---
-ALTER TABLE `login`
-  ADD PRIMARY KEY (`idLogin`);
-
---
--- Indexes for table `tipoalimento`
---
-ALTER TABLE `tipoalimento`
-  ADD PRIMARY KEY (`idCategoria`);
-
---
--- Indexes for table `usuario`
---
-ALTER TABLE `usuario`
-  ADD PRIMARY KEY (`idUsuario`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `alimento`
---
-ALTER TABLE `alimento`
-  MODIFY `idAlimento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `login`
---
-ALTER TABLE `login`
-  MODIFY `idLogin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT for table `tipoalimento`
---
-ALTER TABLE `tipoalimento`
-  MODIFY `idCategoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `usuario`
---
-ALTER TABLE `usuario`
-  MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- Constraints for dumped tables
---
-
---
--- Limitadores para a tabela `alimento`
---
-ALTER TABLE `alimento`
-  ADD CONSTRAINT `fk_Alimento_TipoAlimento1` FOREIGN KEY (`TipoAlimento_idCategoria`) REFERENCES `tipoalimento` (`idCategoria`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_Alimento_Usuario1` FOREIGN KEY (`Usuario_idUsuario`) REFERENCES `usuario` (`idUsuario`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-COMMIT;
+ALTER TABLE `Alimento`
+	ADD CONSTRAINT `fk_Alimento_TipoAlimento1`
+    FOREIGN KEY (`TipoAlimento_idCategoria`)
+    REFERENCES `TipoAlimento` (`idCategoria`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION;
+    
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+
+
+
