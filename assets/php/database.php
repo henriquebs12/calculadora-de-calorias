@@ -4,7 +4,7 @@ class Database
 {
     // Default
     private $host = "localhost";
-    private $db_name = "BBCal";
+    private $db_name = "bbcal";
     private $username = "root";
     private $password = "";
     public $conn;
