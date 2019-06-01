@@ -29,7 +29,7 @@
   </div>
 
 
-  <section class="hero d-flex flex-column h-100">
+  <section class="hero d-flex flex-column h-100 ">
     <!--Começa navbar -->
     <nav class="navbar nav-nutristable mt-5">
       <a class="navbar-brand" title="Página Inicial" href="#">
@@ -92,8 +92,8 @@
 
             <h1 class="mt-5">Nem toda calculadora<br>
               foi feita para contar dinheiro.</h1>
-            <p class="w-80">Nossa calculadora de calorias vai te ajudar a saber o quanto você pode consumir de cada
-              alimento.</p>
+            <p class="w-80">Nossa calculadora de calorias tem um gigantesco banco de dados que vai
+              lhe auxiliar no controle dos alimentos consumidos durante o dia!</p>
 
             <div class="hero-acoes mt-5">
               <a href="#" class="btn btn-primario">Fazer login</a>

@@ -1,8 +1,8 @@
-$texto-branco: #fff;
+$texto-branco: #ffffff;
 $texto-claro: #fbffe3;
 $primaria: #e21b5a;
 $secundaria: #83a300;
-$sombra: #333;
+$sombra: #333333;
 $fundo: #272c51;
 $fonte-titulo: 'Metropolis';
 $font-size-padrao: 1.6rem;
@@ -76,7 +76,8 @@ body {
     background-color: $fundo;
     color: $texto-branco;
     font-family: $fonte-titulo;
-    // font-size padrao: 1.6 (10 pixels) com fallback
+
+// font-size padrao: 1.6 (10 pixels) com fallback
     font-size: 2.2rem;
     font-weight: 400;
 }
@@ -179,7 +180,8 @@ a:hover {
 .nav-nutristable {
     background-color: $texto-claro;
     border-radius: 8px;
-    box-shadow: -1px 3px 43px 0 rgba(0, 0, 0, 0.34);
+    -webkit-box-shadow: -1px 3px 43px 0 rgba(0, 0, 0, 0.34);
+            box-shadow: -1px 3px 43px 0 rgba(0, 0, 0, 0.34);
     height: 2.2em;
     margin: 0 auto;
     width: 60%;
@@ -204,15 +206,19 @@ a:hover {
     border: 2px solid $texto-branco;
     color: $texto-branco;
     font-size: $font-size-padrao;
-    @include button-template;
-    @include setHover-primario($texto-branco);
+
+@include button-template;
+
+@include setHover-primario($texto-branco);
 }
 
 .btn-secundario {
-    background: $secundaria;
-    border: 2px solid $secundaria;
+    background: $primaria;
+    border: 2px solid $primaria;
     color: $texto-branco;
     font-size: $font-size-padrao;
-    @include button-template;
-    @include setHover-secundario($secundaria);
+
+@include button-template;
+
+@include setHover-secundario($primaria);
 }
