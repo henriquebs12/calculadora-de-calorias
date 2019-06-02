@@ -6,6 +6,18 @@ $sombra: #333333;
 $fundo: #272c51;
 $fonte-titulo: 'Metropolis';
 $font-size-padrao: 1.6rem;
+$global-radius: 8px;
+$global-shadow: -1px 3px 43px 0 rgba(0, 0, 0, 0.34), 0 2px 8px rgba(0,0,0,0.05);
+
+@mixin global-shadow() {
+    border-radius: 100px;
+    font-weight: 700;
+    height: 3.5em;
+    line-height: 3.5em;
+    outline: none;
+    padding: 0 2.2em;
+    transition: all 0.2s ease-in-out;
+}
 
 @mixin button-template() {
     border-radius: 100px;
@@ -75,16 +87,60 @@ html {
 body {
     background-color: $fundo;
     color: $texto-branco;
+    display: flex;
+    flex-direction: column;
     font-family: $fonte-titulo;
 
-// font-size padrao: 1.6 (10 pixels) com fallback
+// font-size padrao: 1.6 (10 pixels)
     font-size: 2.2rem;
     font-weight: 400;
+}
+
+.sistema {
+    background-image: url(../images/sis-bg.png);
+    background-size: auto;
+}
+
+.sistema:after {
+    background: rgba(0, 0, 0, 0.1);
+    content: '';
+    height: auto;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: -1;
+}
+
+section {
+    flex: 1 0 auto;
 }
 
 h1 {
     font-size: 5.2rem;
     font-weight: 800;
+    position: relative;
+}
+
+.sistema h1:after {
+    border-radius: $global-radius;
+    border-top: 5px solid $primaria;
+    bottom: -10px;
+    content: '';
+    display: block;
+    margin: 0 auto;
+    width: 150px;
+}
+
+.sistema .text-left h1:after {
+    margin: 0;
+}
+
+.subtitulo {
+    font-size: 2.2rem;
+    letter-spacing: 0.1rem;
+    margin-bottom: 1.6rem;
+    text-transform: uppercase;
 }
 
 a {
@@ -179,12 +235,47 @@ a:hover {
 
 .nav-nutristable {
     background-color: $texto-claro;
-    border-radius: 8px;
-    -webkit-box-shadow: -1px 3px 43px 0 rgba(0, 0, 0, 0.34);
-            box-shadow: -1px 3px 43px 0 rgba(0, 0, 0, 0.34);
+    border-radius: $global-radius;
+    box-shadow: $global-shadow;
     height: 2.2em;
     margin: 0 auto;
-    width: 60%;
+    width: 30%;
+}
+
+.sistema .nav-nutristable:hover {
+    width: 32%;
+}
+
+.sistema .nav-nutristable {
+    height: auto;
+    padding: 0 1em;
+    transition: width 300ms cubic-bezier(0.18, 0.89, 0.32, 1.28), background-color 100ms ease;;
+}
+
+.sistema .nav-nutristable:hover {
+    background-color: rgba($texto-claro, 0.95);
+}
+
+.sistema .nav-nutristable .navbar-nav a {
+    transition: all ease-in-out 300ms;
+}
+
+.sistema .nav-nutristable .navbar-nav a:hover, .navbar-is-selected {
+    background-color: rgba($fundo, 0.1);
+}
+
+.sistema .nav-nutristable i {
+    color: $fundo;
+    line-height: 1.6em;
+}
+
+.nav-opaco {
+    opacity: 0.2;
+    transition: all 200ms cubic-bezier(0.65, 0.05, 0.36, 1);
+}
+
+.nav-nutristable:hover .nav-opaco {
+    opacity: 1;
 }
 
 .logo {
@@ -215,10 +306,150 @@ a:hover {
 .btn-secundario {
     background: $primaria;
     border: 2px solid $primaria;
+    box-shadow: $global-shadow;
     color: $texto-branco;
     font-size: $font-size-padrao;
 
 @include button-template;
 
 @include setHover-secundario($primaria);
+}
+
+.btn-cta {
+    letter-spacing: 0.1rem;
+    text-transform: uppercase;
+}
+
+// CSS do sistema (Biblioteca, Calculadora e Diário)
+.imc-main-card, .imc-card-white {
+    background-color: $secundaria;
+    border-radius: $global-radius;
+    box-shadow: $global-shadow;
+    margin-top: 2.2em;
+    padding: 1.6em;
+}
+
+.imc-main-card i {
+    color: rgba($texto-branco, 0.5);
+    transition: color ease 200ms;
+}
+
+.imc-main-card:hover i {
+    color: $texto-branco;
+}
+
+.imc-main-card p, .imc-card-white p {
+    font-size: 1.6rem;
+    margin: 0;
+}
+
+.imc-card-white {
+    background-color: $texto-claro;
+    color: $fundo;
+    min-height: 210px;
+    position: relative;
+    transform: translate3d(0,0,0);
+    transition-duration: 400ms;
+    transition-property: box-shadow,transform;
+    transition-timing-function: cubic-bezier(0.16,1,0.29,0.99);
+}
+
+.imc-card-white:hover {
+    box-shadow: 0 12px 30px 0 rgba(0, 0, 0, 0.4);
+    transform: translate3d(0,-4px,0);
+    transition-duration: 600ms;
+    transition-property: box-shadow,transform;
+    transition-timing-function: cubic-bezier(0.16,1,0.29,0.99);
+}
+
+.number {
+    background: $primaria;
+    border-radius: 50%;
+    box-shadow: $global-shadow;
+    color: $texto-branco;
+    font-weight: bold;
+    height: 50px;
+    left: -0.8em;
+    position: absolute;
+    top: -1.8rem;
+    width: 50px;
+}
+
+.number span {
+    position: relative;
+    top: 2px;
+}
+
+.gender-label {
+    color: #757575;
+    cursor: pointer;
+    font-size: 50px;
+    margin: 0 1rem;
+    transition: all ease 200ms;
+}
+
+.gender-label:hover {
+    color: #666666;
+    text-shadow: 0 10px 15px rgba($fundo, 0.3)
+    ;
+}
+
+.gender-input {
+    -webkit-appearance: none;
+            appearance: none;
+    cursor: pointer;
+    display: none;
+    height: 65px;
+    left: 0;
+    margin: 0;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    width: 65px;
+    z-index: 100;
+}
+
+.gender-input.male:checked + label, {
+    color: $primaria;
+    text-shadow: 0 10px 10px rgba($primaria, 0.2);
+}
+
+.gender-input.female:checked + label {
+    color: $fundo;
+    text-shadow: 0 10px 10px rgba($fundo, 0.2);
+}
+
+.tooltip-inner {
+    font-size: 1.6rem;
+    padding: 1.6rem;
+}
+
+.form-control {
+    font-size: 2.2rem;
+    height: 4.4rem;
+}
+
+.input-group-text {
+    font-size: 1.6rem;
+}
+
+footer {
+    cursor: default;
+    flex-shrink: 0;
+    font-size: 1.6rem;
+    line-height: 1.6rem;
+}
+
+footer, footer i {
+    transition: color ease 200ms;
+}
+
+footer:hover i {
+    color: $primaria;
+}
+
+.footer-copyright {
+    background-color: $fundo;
+    box-shadow: inset 0 5px 10px darken($fundo, 5%);
+    color: $texto-claro;
 }
