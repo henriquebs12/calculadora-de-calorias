@@ -187,7 +187,7 @@ require_once 'head.php';
                 <h1 class="my-5">Mais informações</h1>
                 <div class="row">
 
-                    <div class="col-4">
+                    <div class="col-12 col-md-4">
 
                         <div class="list-group" id="list-tab" role="tablist">
                             <a class="list-group-item list-group-item-action active" id="o-que-e-list"
@@ -200,7 +200,7 @@ require_once 'head.php';
                                 href="#criticas" role="tab" aria-controls="settings">Críticas ao IMC</a>
                         </div>
                     </div>
-                    <div class="col-8">
+                    <div class="col-12 col-md-8 mt-5 mt-md-0">
                         <div class="tab-content" id="nav-tabContent">
 
                             <div class="tab-pane fade show active" id="o-que-e" role="tabpanel"
