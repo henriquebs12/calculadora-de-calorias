@@ -80,7 +80,7 @@ require_once 'head.php';
                             <div class="number d-flex align-items-center justify-content-center">
                                 <span>1</span>
                             </div>
-                            <h2 class="subtitulo">Como se identifica:</h2>
+                            <h2 class="subtitulo">Como você se identifica:</h2>
                             <div class="gender-box d-flex flex-row justify-content-center">
 
 
