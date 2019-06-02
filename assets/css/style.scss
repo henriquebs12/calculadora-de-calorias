@@ -231,25 +231,22 @@ a:hover {
     box-shadow: $global-shadow;
     height: 2.2em;
     margin: 0 auto;
-    width: 30%;
+    min-width: 550px;
+    width: 40%;
 }
 
 .sistema .nav-nutristable:hover {
-    width: 32%;
+    width: 42%;
 }
 
 .sistema .nav-nutristable {
     height: auto;
     padding: 0 1em;
-    transition: width 300ms cubic-bezier(0.18, 0.89, 0.32, 1.28), background-color 100ms ease;;
-}
-
-.sistema .nav-nutristable:hover {
-    background-color: rgba($texto-claro, 0.95);
+    transition: width 300ms cubic-bezier(0.18, 0.89, 0.32, 1.28);
 }
 
 .sistema .nav-nutristable .navbar-nav a {
-    transition: all ease-in-out 300ms;
+    transition: background-color 200ms ease-out;
 }
 
 .sistema .nav-nutristable .navbar-nav a:hover, .navbar-is-selected {

@@ -2,7 +2,6 @@
 require_once 'head.php';
 ?>
 
-
 <body>
     <main class="sistema">
         <!--Começa navbar -->
@@ -47,7 +46,8 @@ require_once 'head.php';
             </div>
         </nav>
         <!--Termina navbar -->
-        <section class="biblioteca">
+
+        <section class="calculadora">
             <div class="container">
                 <div class="row">
                     <div class="col-12 text-left mt-5">
@@ -83,19 +83,18 @@ require_once 'head.php';
                 </div>
             </div>
 
-            <div class="container">
+            <div class="container px-5 px-md-0">
                 <div class="row mt-5">
 
-                    <div class="col-3">
+                    <div class="col-12 col-md-6 col-lg-3">
                         <div class="imc-card-white d-flex justify-content-center flex-column">
-
                             <div class="number d-flex align-items-center justify-content-center">
                                 <span>1</span>
                             </div>
+
                             <h2 class="subtitulo">Como você se identifica:</h2>
+
                             <div class="gender-box d-flex flex-row justify-content-center">
-
-
                                 <input class="form-check-input gender-input female" type="radio" name="gender-checkobox"
                                     id="female" value="f">
                                 <label class="form-check-label gender-label" for="female" data-html="true"
@@ -104,7 +103,6 @@ require_once 'head.php';
                                     <i class="fas fa-female mr-2"></i>
                                 </label>
 
-
                                 <input class="form-check-input gender-input male" type="radio" name="gender-checkobox"
                                     id="male" value="m" required>
                                 <label class="form-check-label gender-label" for="male" data-html="true"
@@ -112,14 +110,11 @@ require_once 'head.php';
                                     title="Mocinho ou<br/>Mocinho <i>trans</i>">
                                     <i class="fas fa-male mr-2"></i>
                                 </label>
-
-
                             </div>
-
                         </div>
                     </div>
 
-                    <div class="col-3">
+                    <div class="col-12 col-md-6 col-lg-3">
                         <div class="imc-card-white d-flex justify-content-center flex-column">
                             <div class="imc-row">
                                 <div class="number d-flex align-items-center justify-content-center">
@@ -131,14 +126,13 @@ require_once 'head.php';
                                         min="1" max="120" required>
                                     <div class="input-group-append">
                                         <span class="input-group-text">anos</span>
-
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-3">
+                    <div class="col-12 col-md-6 col-lg-3">
                         <div class="imc-card-white d-flex justify-content-center flex-column">
                             <div class="imc-row">
                                 <div class="number d-flex align-items-center justify-content-center">
@@ -150,14 +144,13 @@ require_once 'head.php';
                                         min="1" max="300" required>
                                     <div class="input-group-append">
                                         <span class="input-group-text">cm</span>
-
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-3">
+                    <div class="col-12 col-md-6 col-lg-3">
                         <div class="imc-card-white d-flex justify-content-center flex-column">
                             <div class="imc-row">
                                 <div class="number d-flex align-items-center justify-content-center">
@@ -169,7 +162,6 @@ require_once 'head.php';
                                         required>
                                     <div class="input-group-append">
                                         <span class="input-group-text">kg</span>
-
                                     </div>
                                 </div>
                             </div>
@@ -180,13 +172,14 @@ require_once 'head.php';
 
                 <div class="row">
                     <div class="col-12 text-center my-5">
-                        <button href="#" class="btn btn-secundario btn-cta">Calcular<i
-                                class="fas fa-angle-right ml-2"></i></button>
+                        <button href="#" class="btn btn-secundario btn-cta">Calcular
+                            <i class="fas fa-angle-right ml-2"></i>
+                        </button>
                     </div>
                 </div>
                 <!-- Fim do container -->
             </div>
-
+            <!--Termina section calculadora -->
         </section>
 
         <section class="mais-info my-5">
@@ -323,7 +316,7 @@ require_once 'head.php';
                 </div>
                 <!-- Fim da section mais-info -->
             </div>
-            <!-- Fim da section sistema -->
+            <!-- Fim da section mais-info -->
         </section>
 
 
