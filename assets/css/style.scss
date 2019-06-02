@@ -97,22 +97,14 @@ body {
 }
 
 .sistema {
-    background-image: url(../images/sis-bg.png);
-    background-size: auto;
-}
-
-.sistema:after {
-    background: rgba(0, 0, 0, 0.1);
-    content: '';
-    height: auto;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 100%;
-    z-index: -1;
-}
-
-section {
+    background: rgba(45,70,184,1);
+    background:    -moz-linear-gradient(-45deg, rgba(45,70,184,1) 0%, rgba($fundo, 1) 100%);
+    background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(45,70,184,1)), color-stop(100%, rgba($fundo, 1)));
+    background: -webkit-linear-gradient(-45deg, rgba(45,70,184,1) 0%, rgba($fundo, 1) 100%);
+    background:      -o-linear-gradient(-45deg, rgba(45,70,184,1) 0%, rgba($fundo, 1) 100%);
+    background:     -ms-linear-gradient(-45deg, rgba(45,70,184,1) 0%, rgba($fundo, 1) 100%);
+    background:         linear-gradient(135deg, rgba(45,70,184,1) 0%, rgba($fundo, 1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2d46b8', endColorstr='#272c51', GradientType=1 );
     flex: 1 0 auto;
 }
 
@@ -433,6 +425,16 @@ a:hover {
     font-size: 1.6rem;
 }
 
+.list-group-item.active {
+    background-color: $primaria;
+    border-color: $primaria;
+}
+
+//
+//
+// Footer
+//
+//
 footer {
     cursor: default;
     flex-shrink: 0;
