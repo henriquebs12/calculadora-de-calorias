@@ -54,16 +54,28 @@ require_once 'head.php';
 
                         <h1>Calcule o seu IMC</h1>
 
-                        <div class="imc-main-card d-flex flex-row">
-                            <i class="far fa-question-circle mr-3"></i>
+
+
+                        <div class="imc-main-card d-flex flex-row" class="subtitulo" data-toggle="collapse"
+                            data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+
                             <div class="imc-row">
-                                <h2 class="subtitulo">O que é o IMC?</h2>
-                                <p>IMC significa índice de massa corporal. Com ele você não só verifica
-                                    se o seu
-                                    peso
-                                    se classifica
-                                    numa faixa
-                                    saudável, como também pode determinar seu IMC ideal.</p>
+                                <h2 class="subtitulo m-0">O que é o IMC?<i class="far fa-question-circle ml-3"></i></h2>
+
+                                <div class="collapse mt-4" id="collapseExample">
+
+                                    <p>IMC significa índice de massa corporal. Ele serve para avaliar o seu peso em
+                                        relação à sua altura e
+                                        assim
+                                        indicar se está dentro do peso ideal, acima ou abaixo do peso desejado.
+                                        <br><br>
+                                        De acordo com a Organização Mundial da Saúde, o seu IMC deve ficar
+                                        entre 18.5 a 24.9,
+                                        representando o peso ideal e o menor risco de contração para algumas doenças.
+                                    </p>
+
+                                </div>
+
                             </div>
                         </div>
 
@@ -115,7 +127,8 @@ require_once 'head.php';
                                 </div>
                                 <h2 class="subtitulo">Idade:</h2>
                                 <div class="input-group">
-                                    <input type="number" class="form-control" aria-label="Qual a sua idade?" required>
+                                    <input type="number" class="form-control" aria-label="Qual a sua idade?" step="1"
+                                        min="1" max="120" required>
                                     <div class="input-group-append">
                                         <span class="input-group-text">anos</span>
 
@@ -133,7 +146,8 @@ require_once 'head.php';
                                 </div>
                                 <h2 class="subtitulo">Altura:</h2>
                                 <div class="input-group">
-                                    <input type="number" class="form-control" aria-label="Qual a sua altura?" required>
+                                    <input type="number" class="form-control" aria-label="Qual a sua altura?" step="1"
+                                        min="1" max="300" required>
                                     <div class="input-group-append">
                                         <span class="input-group-text">cm</span>
 
@@ -151,7 +165,8 @@ require_once 'head.php';
                                 </div>
                                 <h2 class="subtitulo">Peso:</h2>
                                 <div class="input-group">
-                                    <input type="number" class="form-control" aria-label="Qual o seu peso?" required>
+                                    <input type="number" class="form-control" aria-label="Qual o seu peso?" min="1"
+                                        required>
                                     <div class="input-group-append">
                                         <span class="input-group-text">kg</span>
 

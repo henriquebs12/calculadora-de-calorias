@@ -131,7 +131,7 @@ h1 {
 .subtitulo {
     font-size: 2.2rem;
     letter-spacing: 0.1rem;
-    margin-bottom: 1.6rem;
+    line-height: 2.2rem;
     text-transform: uppercase;
 }
 
@@ -313,6 +313,10 @@ a:hover {
 }
 
 // CSS do sistema (Biblioteca, Calculadora e Diário)
+.imc-main-card {
+    cursor: pointer;
+}
+
 .imc-main-card, .imc-card-white {
     background-color: $secundaria;
     border-radius: $global-radius;
@@ -331,7 +335,7 @@ a:hover {
 }
 
 .imc-main-card p, .imc-card-white p {
-    font-size: 1.6rem;
+    font-size: 1.8rem;
     margin: 0;
 }
 
@@ -437,6 +441,20 @@ a:hover {
     color: $texto-claro;
     font-size: 1.6rem;
     padding: 0.375rem 1.6rem;
+}
+
+.list-group-item {
+    padding: 1.75rem 2.2rem;
+}
+
+.list-group-item:first-child {
+    border-top-left-radius: $global-radius;
+    border-top-right-radius: $global-radius;
+}
+
+.list-group-item:last-child {
+    border-bottom-left-radius: $global-radius;
+    border-bottom-right-radius: $global-radius;
 }
 
 .list-group-item.active {
