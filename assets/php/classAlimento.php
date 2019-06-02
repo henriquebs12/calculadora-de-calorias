@@ -1,6 +1,6 @@
 <?php
 
-include 'databasephp';
+require_once 'database.php';
 
 class Alimento{
 
@@ -12,6 +12,7 @@ class Alimento{
 	private $porcao;
 	private $teorLip;
 	private $teorFib;
+	private $TipoAlimento_idCategoria;
 
 	public function __construct(){
 		$database = new Database();
@@ -51,6 +52,10 @@ class Alimento{
 		return $this->teorFib;
 	}
 
+	public function getTipoAlimento_idCategoria(){
+		return $this->TipoAlimento_idCategoria;
+	}
+
 	public function setId($id){
 		$this->id = $id;
 	}
@@ -83,9 +88,13 @@ class Alimento{
 		$this->teorFib = $teorFib;
 	}
 
+	public function setTipoAlimento_idCategoria($TipoAlimento_idCategoria){
+		$this->TipoAlimento_idCategoria = $TipoAlimento_idCategoria;
+	}
+
 	public function insert(){
 		try{
-			$stmt = $this->conn->prepare("INSERT INTO Alimento(nome = :nome, valorCal = :valorCal, quantProt = :quantProt, quantCarb = :quantCarb, porcao = :porcao, teorLip = : teorLip, teorFib = :teorFib)");
+			$stmt = $this->conn->prepare("INSERT INTO Alimento(nome, valorCal, quantProt, quantCarb, porcao, teorLip, teorFib, TipoAlimento_idCategoria) VALUES (:nome, :valorCal, :quantProt, :quantCarb, :porcao, :teorLip, :teorFib, :TipoAlimento_idCategoria)");
 			$stmt->bindParam(":nome", $this->nome);
 			$stmt->bindParam(":valorCal", $this->valorCal);
 			$stmt->bindParam(":quantProt", $this->quantProt);
@@ -93,6 +102,7 @@ class Alimento{
 			$stmt->bindParam(":porcao", $this->porcao);
 			$stmt->bindParam(":teorLip", $this->teorLip);
 			$stmt->bindParam(":teorFib", $this->teorFib);
+			$stmt->bindParam(":TipoAlimento_idCategoria", $this->TipoAlimento_idCategoria);
 			$stmt->execute();
 			return 1;
 		}catch(PDOException $e){
@@ -103,7 +113,7 @@ class Alimento{
 
 	public function edit(){
 		try{
-			$stmt = $this->conn->prepare("UPDATE Alimento SET nome = :nome, valorCal = :valorCal, quantProt = :quantProt, quantCarb = :quantCarb, porcao = :porcao, teorLip = : teorLip, teorFib = :teorFib WHERE id = :id");
+			$stmt = $this->conn->prepare("UPDATE Alimento SET nome = :nome, valorCal = :valorCal, quantProt = :quantProt, quantCarb = :quantCarb, porcao = :porcao, teorLip = : teorLip, teorFib = :teorFib, TipoAlimento_idCategoria = :TipoAlimento_idCategoria WHERE id = :id");
 			$stmt->bindParam(":id", $this->id);
 			$stmt->bindParam(":nome", $this->nome);
 			$stmt->bindParam(":valorCal", $this->valorCal);
