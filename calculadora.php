@@ -70,8 +70,7 @@ require_once 'head.php';
                                         indicar se está dentro do peso ideal, acima ou abaixo do peso desejado.
                                         <br><br>
                                         De acordo com a Organização Mundial da Saúde, o seu IMC deve ficar
-                                        entre 18.5 a 24.9,
-                                        representando o peso ideal e o menor risco de contração para algumas doenças.
+                                        entre 18.5 a 24.9, que é a faixa com menor propenção a algumas doenças.
                                     </p>
 
                                 </div>
