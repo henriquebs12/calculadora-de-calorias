@@ -37,6 +37,7 @@ CREATE TABLE IF NOT EXISTS `Alimento` (
   `porcao` INT NOT NULL,
   `teor_limpidico` FLOAT NOT NULL,
   `teor_fibroso` FLOAT NOT NULL,
+  `imagem_ref` VARCHAR(40),
   `TipoAlimento_idTipo` INT NOT NULL,
   PRIMARY KEY (`idAlimento`))
 ENGINE = InnoDB;
