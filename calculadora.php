@@ -83,7 +83,7 @@ require_once 'head.php';
             </div>
 
             <div class="container px-5 px-md-0">
-                <div class="row mt-5">
+                <div class="row mt-5" id="content-calc">
 
                     <div class="col-12 col-md-6 col-lg-3">
                         <div class="imc-card-white d-flex justify-content-center flex-column">
@@ -139,7 +139,7 @@ require_once 'head.php';
                                 </div>
                                 <h2 class="subtitulo">Altura:</h2>
                                 <div class="input-group">
-                                    <input type="number" class="form-control" aria-label="Qual a sua altura?" step="1"
+                                    <input id="altura" type="number" class="form-control" aria-label="Qual a sua altura?" step="1"
                                         min="1" max="300" required>
                                     <div class="input-group-append">
                                         <span class="input-group-text">cm</span>
@@ -157,7 +157,7 @@ require_once 'head.php';
                                 </div>
                                 <h2 class="subtitulo">Peso:</h2>
                                 <div class="input-group">
-                                    <input type="number" class="form-control" aria-label="Qual o seu peso?" min="1"
+                                    <input id="peso" type="number" class="form-control" aria-label="Qual o seu peso?" min="1"
                                         required>
                                     <div class="input-group-append">
                                         <span class="input-group-text">kg</span>
@@ -171,7 +171,7 @@ require_once 'head.php';
 
                 <div class="row">
                     <div class="col-12 text-center my-5">
-                        <button href="#" class="btn btn-secundario btn-cta">Calcular
+                        <button id="btn-calcula" href="#" class="btn btn-secundario btn-cta">Calcular
                             <i class="fas fa-angle-right ml-2"></i>
                         </button>
                     </div>
