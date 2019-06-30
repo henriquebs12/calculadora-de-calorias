@@ -4,12 +4,28 @@ require_once 'assets/php/classLogin.php';
 
 $login = new Login();
 
-if (isset($_POST['action'])){
-  $login->setEmail($_POST['email']);
-  $senha = sha1($_POST['senha']);
-  $login->setSenha($senha);
-  $login->insert();
-}
+if(isset($_POST["action"])){
+
+    $email = $_POST["email"];
+    $senha = $_POST["senha"];    
+
+    $login = new Login();
+    $login->setEmail($email);
+    $login->setSenha($senha);
+
+    if($login->existeEmail()){
+      if($id = $login->existeConta()){
+        session_start();
+        $_SESSION['id'] = $id;
+        header("Location: membros.php");
+      }else{
+        $flag = -1;
+      }
+    }else{
+      $flag = 0;
+    }
+
+  }
 
 ?>
 <!doctype html>

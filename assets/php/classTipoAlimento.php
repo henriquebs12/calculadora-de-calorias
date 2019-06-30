@@ -70,7 +70,7 @@ class TipoAlimento{
 	public function index(){
         $stmt = $this->conn->prepare("SELECT * FROM `TipoAlimento` WHERE 1");
         $stmt->execute();
-        return $stmt;
+        return $stmt->FatchALL(PDOException);
     }
 
 }

@@ -1,15 +1,24 @@
 <?php
 
 require_once 'assets/php/classUsuario.php';
+require_once 'assets/php/classLogin.php';
 
 $user = new Usuario();
+$login = new Login();
 
 if (isset($_POST['action'])){
   $user->setNome($_POST['nome']);
   $user->setAltura($_POST['altura']);
   $user->setPeso($_POST['peso']);
-  $user->setData($_POST['data']);
-  $user->insert();
+  $user->setData($_POST['data']);  
+  $login->setEmail($_POST['email']);
+  $senha = sha1($_POST['senha']);
+  $login->setSenha($senha);
+  if($login->insert() == 1 && $user->insert() == 1){
+      $result = "Vamos a calculadora!";
+    }else{
+      $error = "Ops, algo deu errado!";
+      }  
 }
 
 ?>
@@ -20,6 +29,11 @@ if (isset($_POST['action'])){
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Thiago: Eu que coloquei -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+      
+    </script>
 
   <!-- Bootstrap Reboot -->
   <link rel="stylesheet" href="assets/css/bootstrap-reboot.css">
@@ -37,33 +51,62 @@ if (isset($_POST['action'])){
   <img class="logo" src="assets/images/diamond.svg" alt="">
   <h3 class="text-center">Mais controle.<br>
     Menos preocupação.</h3>
+    <div id="temporizador">
+      <?php
+      if(isset($warning)){
+        ?>
+        <div class="alert alert-warning">
+          <?php echo $warning; ?>      
+        </div> 
+      <?php 
+      }else if(isset($result)) {
+      ?>
+        <div class="alert alert-success">
+          <?php echo $result; ?>
+        </div>
+      <?php
+      }else if(isset($error)){
+      ?>
+        <div class="alert alert-danger">
+          <?php echo $error; ?>
+        </div>
+      <?php
+      }
+      ?>
+    </div>
   <main class="landing-page">
 
     <div class="container">
       <form method="post" action="insertUser.php" class="login" id='login'>
         <div class="form-group">
+          <label for="exampleInputEmail1">Email address</label>
+          <input required="required" type="email" id="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+            placeholder="exemplo@email.com.br">
+          <small id="emailHelp" class="form-text text-muted"></small>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Senha</label>
+          <input required="required" type="password" id="senha" name="senha" class="form-control" id="exampleInputPassword1" placeholder="*******">
+        </div>
+        <div class="form-group">
           <label for="exampleInputEmail1">Nome</label>
-          <input type="name" id="nome" name="nome" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-            placeholder="Enter nome">
+          <input required="required" type="name" id="nome" name="nome" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+            placeholder="Poliana da silva">
           <small id="emailHelp" class="form-text text-muted"></small>
         </div>
         <div class="form-group">
           <label for="exampleInputPassword1">Altura</label>
-          <input type="number" id="altura" name="altura" class="form-control" id="exampleInputPassword1" placeholder="Password">
+          <input required="required" type="number" id="altura" name="altura" class="form-control" id="exampleInputPassword1" placeholder="Em centimetros">
         </div>
         <div class="form-group">
           <label for="exampleInputPassword1">Peso</label>
-          <input type="number" id="peso" name="peso" class="form-control" id="exampleInputPassword1" placeholder="Password">
+          <input required="required" type="number" id="peso" name="peso" class="form-control" id="exampleInputPassword1" placeholder="em quilos">
         </div>
         <div class="form-group">
-          <label for="exampleInputPassword1">Data</label>
-          <input type="date" id="data" name="data" class="form-control" id="exampleInputPassword1" placeholder="Password">
+          <label for="exampleInputPassword1">Data de nascimento</label>
+          <input required="required" type="date" id="data" name="data" class="form-control" id="exampleInputPassword1" placeholder="Password">
         </div>
-        <div class="form-check">
-          <input type="checkbox" class="form-check-input" id="exampleCheck1">
-          <label class="form-check-label" for="exampleCheck1">Lembrar senha</label>
-        </div>
-        <input type="hidden" name="action" value="insert">
+        <input required="required" type="hidden" name="action" value="insert">
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
   </main>
@@ -81,6 +124,19 @@ if (isset($_POST['action'])){
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
     integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
     crossorigin="anonymous"></script>
+    <script>
+      $(document).ready(function() {
+        $('#temporizador').fadeIn( 300 ).delay( 1500 ).fadeOut( 400 );
+        $(".alert-success").fadeTo(1000, 500).slideUp(300, function(){
+          $(".alert-success").alert('close');
+          window.location.href = "login.php";
+        });
+        $(".alert-danger").fadeTo(1000, 500).slideUp(300, function(){
+          $(".alert-danger").alert('close');
+          window.location.href = "InsertUser.php";
+        });
+      });
+    </script>
 </body>
 
 </html>

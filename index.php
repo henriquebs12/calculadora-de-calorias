@@ -82,8 +82,8 @@ require_once 'head.php';
               lhe auxiliar no controle dos alimentos consumidos durante o dia!</p>
 
             <div class="hero-acoes mt-5">
-              <a href="biblioteca.php" class="btn btn-primario">Fazer login</a>
-              <a href="#" class="btn btn-secundario ml-3">Criar uma conta</a>
+              <a href="login.php" class="btn btn-primario">Fazer login</a>
+              <a href="insertUser.php" class="btn btn-secundario ml-3">Criar uma conta</a>
             </div>
           </div>
         </div>
