@@ -37,19 +37,10 @@ CREATE TABLE IF NOT EXISTS `Alimento` (
   `porcao` INT NOT NULL,
   `teor_limpidico` FLOAT NOT NULL,
   `teor_fibroso` FLOAT NOT NULL,
-  `Usuario_idUsuario` INT NOT NULL,
+  `imagem_ref` VARCHAR(40),
   `TipoAlimento_idTipo` INT NOT NULL,
   PRIMARY KEY (`idAlimento`))
 ENGINE = InnoDB;
-
-CREATE TABLE IF NOT EXISTS `Login`(
-  `idLogin` INT NOT NULL AUTO_INCREMENT,
-  `email` VARCHAR(100) NOT NULL,
-  `senha` VARCHAR(45) NOT NULL,
-  `Usuario_idUsuario` INT NOT NULL,
-  PRIMARY KEY (`idLogin`))
-ENGINE = InnoDB;
-
 
 
 CREATE TABLE IF NOT EXISTS `TipoAlimento` (
@@ -62,28 +53,44 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `Usuario` (
   `idUsuario` INT NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(50) NOT NULL,
+  `email` VARCHAR(100) NOT NULL,
+  `senha` VARCHAR(45) NOT NULL,
   `altura` FLOAT NOT NULL,
   `peso` FLOAT NOT NULL,
   `data_nasc` DATE NOT NULL,
   `genero` VARCHAR(1),
+  `is_admin` BOOL NOT NULL,
   PRIMARY KEY (`idUsuario`))
 ENGINE = InnoDB;
 
-
-ALTER TABLE `Login`
-  ADD CONSTRAINT `fk_Login_Usuario1`
-    FOREIGN KEY (`Usuario_idUsuario`)
-    REFERENCES `Usuario` (`idUsuario`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION;
+CREATE TABLE IF NOT EXISTS `Escolhe_Alimento`(
+	`quantidade` INT NOT NULL,
+    `data` DATE NOT NULL,
+    `horario` TIME NOT NULL,
+    `Usuario_idUsuario` INT NOT NULL,
+    `Alimento_idAlimento` INT NOT NULL
+)
+ENGINE = InnoDB;
 
 ALTER TABLE `Alimento`
-  ADD CONSTRAINT `fk_Alimento_TipoAlimento1`
+	ADD CONSTRAINT `fk_Alimento_TipoAlimento1`
     FOREIGN KEY (`TipoAlimento_idTipo`)
     REFERENCES `TipoAlimento` (`idCategoria`)
     ON DELETE NO ACTION
-  ON UPDATE NO ACTION;
+	ON UPDATE NO ACTION;
     
+ALTER TABLE `Escolhe_Alimento`	
+	ADD CONSTRAINT `Usuario_idUsuario`
+    FOREIGN KEY (`Usuario_idUsuario`)
+    REFERENCES `Usuario` (`idUsuario`)
+    ON DELETE NO ACTION
+	ON UPDATE NO ACTION,
+    
+    ADD CONSTRAINT `Alimento_idAlimento`
+    FOREIGN KEY (`Alimento_idAlimento`)
+    REFERENCES `Alimento` (`idAlimento`)
+    ON DELETE NO ACTION
+	ON UPDATE NO ACTION;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
