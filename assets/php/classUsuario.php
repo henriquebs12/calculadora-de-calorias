@@ -156,18 +156,18 @@ class Usuario{
 
 	public function selecionar($Usuario_idUsuario,$Alimento_idAlimento){
 		try{
-			$sql = "SELECT a.nome,u.nome, ea.quantidade, ea.data, ea.horario FROM alimento a, usuario u, escolhe_alimento ea WHERE a.idAlimento = Alimento_idAlimento and ea.Usuario_idUsuario = Usuario_idUsuario";
+			$sql = "SELECT u.nome,a.nome, ea.quantidade, ea.data, ea.horario FROM alimento a, usuario u, escolhe_alimento ea WHERE a.idAlimento = ea.Alimento_idAlimento and ea.Usuario_idUsuario = u.idUsuario and u.idUsuario = $Usuario_idUsuario and a.idAlimento = $Alimento_idAlimento";
+			
 			$resultado = $this->conn->query($sql);
 			$row = $resultado->fetch();
+			//echo $row[0] . " - " . $row[1] . " - " . $row[2] . " - " . $row[3] . " - " . $row[4];
 			return $row;
 		}
 		catch(PDOException $e){
 			echo $e->getMessage();
 		}
 	}
-
 }
-
 
 
 ?>
