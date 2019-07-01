@@ -25,7 +25,7 @@ if (isset($_POST['action'])){
 
 <body>
     <main class="sistema">
-        
+
 
         <section class="calculadora">
             <div class="container">
@@ -37,105 +37,103 @@ if (isset($_POST['action'])){
                     </div>
                 </div>
             </div>
+            <form method="get" action="insertUser.php" class="login" id='login'>
+                <div class="container px-5 px-md-0">
+                    <div class="row mt-5" id="content-calc">
+                        <div class="col-12 col-md-6 col-lg-3">
+                            <div class="imc-card-white d-flex justify-content-center flex-column">
+                                <div class="number d-flex align-items-center justify-content-center">
+                                    <span>1</span>
+                                </div>
 
-            <div class="container px-5 px-md-0">
-                <div class="row mt-5" id="content-calc">
-                    <form method="get" action="insertUser.php" class="login" id='login'>
+                                <h2 class="subtitulo">Como você se identifica:</h2>
 
-                    <div class="col-12 col-md-6 col-lg-3">
-                        <div class="imc-card-white d-flex justify-content-center flex-column">
-                            <div class="number d-flex align-items-center justify-content-center">
-                                <span>1</span>
-                            </div>
+                                <div class="gender-box d-flex flex-row justify-content-center">
+                                    <input class="form-check-input gender-input female" type="radio" name="genero"
+                                        id="female" value="f">
+                                    <label class="form-check-label gender-label" for="female" data-html="true"
+                                        data-toggle="tooltip" data-placement="bottom"
+                                        title="Mocinha ou<br/>Mocinha <i>trans</i>">
+                                        <i class="fas fa-female mr-2"></i>
+                                    </label>
 
-                            <h2 class="subtitulo">Como você se identifica:</h2>
-
-                            <div class="gender-box d-flex flex-row justify-content-center">
-                                <input class="form-check-input gender-input female" type="radio" name="genero"
-                                    id="female" value="f">
-                                <label class="form-check-label gender-label" for="female" data-html="true"
-                                    data-toggle="tooltip" data-placement="bottom"
-                                    title="Mocinha ou<br/>Mocinha <i>trans</i>">
-                                    <i class="fas fa-female mr-2"></i>
-                                </label>
-
-                                <input class="form-check-input gender-input male" type="radio" name="genero"
-                                    id="male" value="m" required>
-                                <label class="form-check-label gender-label" for="male" data-html="true"
-                                    data-toggle="tooltip" data-placement="bottom"
-                                    title="Mocinho ou<br/>Mocinho <i>trans</i>">
-                                    <i class="fas fa-male mr-2"></i>
-                                </label>
+                                    <input class="form-check-input gender-input male" type="radio" name="genero"
+                                        id="male" value="m" required>
+                                    <label class="form-check-label gender-label" for="male" data-html="true"
+                                        data-toggle="tooltip" data-placement="bottom"
+                                        title="Mocinho ou<br/>Mocinho <i>trans</i>">
+                                        <i class="fas fa-male mr-2"></i>
+                                    </label>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
 
-                    <div class="col-12 col-md-6 col-lg-3">
-                        <div class="imc-card-white d-flex justify-content-center flex-column">
-                            <div class="imc-row">
-                                <div class="number d-flex align-items-center justify-content-center">
-                                    <span>2</span>
-                                </div>
-                                <h2 class="subtitulo">Data de nascimento:</h2>
-                                <div class="input-group">
-                                    <input type="date" class="form-control"  required>
-                                    <div class="input-group-append">
-                                        <span class="input-group-text">anos</span>
+                        <div class="col-12 col-md-6 col-lg-3">
+                            <div class="imc-card-white d-flex justify-content-center flex-column">
+                                <div class="imc-row">
+                                    <div class="number d-flex align-items-center justify-content-center">
+                                        <span>2</span>
+                                    </div>
+                                    <h2 class="subtitulo">Data de nascimento:</h2>
+                                    <div class="input-group">
+                                        <input type="date" class="form-control" required>
+                                        <div class="input-group-append">
+                                            <span class="input-group-text">anos</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="col-12 col-md-6 col-lg-3">
-                        <div class="imc-card-white d-flex justify-content-center flex-column">
-                            <div class="imc-row">
-                                <div class="number d-flex align-items-center justify-content-center">
-                                    <span>3</span>
-                                </div>
-                                <h2 class="subtitulo">Altura:</h2>
-                                <div class="input-group">
-                                    <input id="altura" type="number" class="form-control" aria-label="Qual a sua altura?" step="1"
-                                        min="1" max="300" required>
-                                    <div class="input-group-append">
-                                        <span class="input-group-text">cm</span>
+                        <div class="col-12 col-md-6 col-lg-3">
+                            <div class="imc-card-white d-flex justify-content-center flex-column">
+                                <div class="imc-row">
+                                    <div class="number d-flex align-items-center justify-content-center">
+                                        <span>3</span>
+                                    </div>
+                                    <h2 class="subtitulo">Altura:</h2>
+                                    <div class="input-group">
+                                        <input id="altura" type="number" class="form-control"
+                                            aria-label="Qual a sua altura?" step="1" min="1" max="300" required>
+                                        <div class="input-group-append">
+                                            <span class="input-group-text">cm</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="col-12 col-md-6 col-lg-3">
-                        <div class="imc-card-white d-flex justify-content-center flex-column">
-                            <div class="imc-row">
-                                <div class="number d-flex align-items-center justify-content-center">
-                                    <span>4</span>
-                                </div>
-                                <h2 class="subtitulo">Peso:</h2>
-                                <div class="input-group">
-                                    <input id="peso" type="number" class="form-control" aria-label="Qual o seu peso?" min="1"
-                                        required>
-                                    <div class="input-group-append">
-                                        <span class="input-group-text">kg</span>
+                        <div class="col-12 col-md-6 col-lg-3">
+                            <div class="imc-card-white d-flex justify-content-center flex-column">
+                                <div class="imc-row">
+                                    <div class="number d-flex align-items-center justify-content-center">
+                                        <span>4</span>
+                                    </div>
+                                    <h2 class="subtitulo">Peso:</h2>
+                                    <div class="input-group">
+                                        <input id="peso" type="number" class="form-control"
+                                            aria-label="Qual o seu peso?" min="1" required>
+                                        <div class="input-group-append">
+                                            <span class="input-group-text">kg</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        <!-- Fim da row -->
                     </div>
-                    <!-- Fim da row -->
-                    </form>
-                </div>
-
-
-                <div class="row">
-                    <div class="col-12 text-center my-5">
-                        <button id="btn-calcula" href="#" class="btn btn-secundario btn-cta">Calcular
-                            <i class="fas fa-angle-right ml-2"></i>
-                        </button>
+                    <div class="row">
+                        <div class="col-12 text-center my-5">
+                            <button id="btn-calcula" href="#" class="btn btn-secundario btn-cta">Calcular
+                                <i class="fas fa-angle-right ml-2"></i>
+                            </button>
+                        </div>
                     </div>
-                </div>
-                <!-- Fim do container -->
+
+            </form>
+
+            <!-- Fim do container -->
             </div>
             <!--Termina section calculadora -->
         </section>
