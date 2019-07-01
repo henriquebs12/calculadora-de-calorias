@@ -21,9 +21,9 @@ $global-shadow: -1px 3px 43px 0 rgba(0, 0, 0, 0.34), 0 2px 8px rgba(0,0,0,0.05);
 
 @mixin button-template() {
     border-radius: 100px;
-    font-weight: 700;
-    height: 3.5em;
-    line-height: 3.5em;
+    font-weight: 500;
+    height: 3.2em;
+    line-height: 3.2em;
     outline: none;
     padding: 0 2.2em;
     transition: all 0.2s ease-in-out;
@@ -432,6 +432,61 @@ a:hover {
 .list-group-item.active {
     background-color: $primaria;
     border-color: $primaria;
+}
+
+//
+//
+// Modal de login
+//
+//
+.modal-content {
+    border-radius: 20px;
+}
+
+.modal-body {
+    color: $fundo;
+}
+
+.img-login {
+    border-bottom-left-radius: 15px;
+    border-top-left-radius: 15px;
+    height: 100%;
+    max-height: 50vh;
+    object-fit: cover;
+}
+
+button.close {
+    background-color: #e21b5a;
+    border-radius: 50%;
+    color: #fbffe3;
+    font-weight: bold;
+    height: 50px;
+    line-height: 55px;
+    opacity: 1;
+    position: absolute;
+    right: -24px;
+    text-shadow: none;
+    top: -24px;
+    transition: box-shadow ease 150ms;
+    width: 50px;
+    z-index: 999;
+}
+
+button.close:focus, button.close:hover {
+    box-shadow: -1px 3px 43px 0 rgba(0,0,0,0.34), 0 2px 8px rgba(0,0,0,0.05);
+    color: $texto-claro;
+    opacity: 1;
+    text-decoration: none;
+}
+
+.form-control {
+    color: white;
+    font-size: 1.8rem;
+}
+
+.form-control::placeholder {
+    color: $texto-claro;
+    opacity: 1; /* Firefox */
 }
 
 //
