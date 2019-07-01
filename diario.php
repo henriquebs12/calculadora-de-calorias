@@ -1,5 +1,8 @@
 <?php
-require_once 'head.php';
+    require_once 'head.php';
+    require_once 'assets/php/classEscolhe_Alimento.php';
+    $esc_ali = new Escolhe_Alimento();
+    $esc_ali->selecionar(1,1);
 ?>
 
 

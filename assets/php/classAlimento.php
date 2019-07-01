@@ -141,7 +141,6 @@ class Alimento{
 			return 0;
 		}
 	}
-
 }
 
 ?>
