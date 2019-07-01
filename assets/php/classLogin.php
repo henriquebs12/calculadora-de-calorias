@@ -4,7 +4,7 @@ include_once 'database.php';
 
 class Login{
 	
-	private $id;
+	private $id; 
 	private $email;
 	private $senha;
 

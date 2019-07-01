@@ -1,28 +1,26 @@
 <?php
 
 require_once 'assets/php/classUsuario.php';
-require_once 'assets/php/classLogin.php';
 
 $user = new Usuario();
-$login = new Login();
 
 if (isset($_POST['action'])){
   $user->setNome($_POST['nome']);
   $user->setAltura($_POST['altura']);
   $user->setPeso($_POST['peso']);
   $user->setData($_POST['data']);  
-  $login->setEmail($_POST['email']);
-  $senha = sha1($_POST['senha']);
-  $login->setSenha($senha);
-  if($login->insert() == 1 && $user->insert() == 1){
+  $user->setEmail($_POST['email']);
+  $user->setSenha($_POST['senha']);
+  $user->setGenero($_POST['genero']);
+  $user->setIs_admin($_POST['isadmin']);
+  if($user->insert() == 1){
       $result = "Vamos a calculadora!";
     }else{
       $error = "Ops, algo deu errado!";
-      }  
+      }
 }
 
 ?>
-<!doctype html>
 <html lang="pt-BR">
 
 <head>
@@ -77,7 +75,7 @@ if (isset($_POST['action'])){
   <main class="landing-page">
 
     <div class="container">
-      <form method="post" action="insertUser.php" class="login" id='login'>
+      <form method="get" action="insertUser.php" class="login" id='login'>
         <div class="form-group">
           <label for="exampleInputEmail1">Email address</label>
           <input required="required" type="email" id="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
@@ -106,6 +104,7 @@ if (isset($_POST['action'])){
           <label for="exampleInputPassword1">Data de nascimento</label>
           <input required="required" type="date" id="data" name="data" class="form-control" id="exampleInputPassword1" placeholder="Password">
         </div>
+        <input required="required" type="hidden" name="isadmin" value=0>
         <input required="required" type="hidden" name="action" value="insert">
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
@@ -140,3 +139,12 @@ if (isset($_POST['action'])){
 </body>
 
 </html>
+
+email=t%40cmo.com&
+senha=123123&
+nome=thiago&
+altura=123&
+peso=123&
+data=1994-03-22&
+isadmin=0&
+action=insert
