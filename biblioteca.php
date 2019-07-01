@@ -48,13 +48,13 @@ require_once 'head.php';
 
                 </ul>
                 <ul class="nav flex-row justify-content-md-center justify-content-start flex-nowrap">
-                    <li class="nav-item"><a class="nav-link nav-opaco" target="_blank"
-                            href="https://www.facebook.com/pleasecometobr"><i
-                                class="fab fa-facebook-f mr-3 fa-lg"></i></a>
+                    <li class="nav-item">
+                        <a href="#" title="Sair" class="nav-link nav-opaco">
+                            <i class="fas fa-sign-out-alt mr-3 fa-lg"></i>
+                        </a>
+
                     </li>
-                    <li class="nav-item"><a class="nav-link nav-opaco" target="_blank"
-                            href="https://www.facebook.com/pleasecometobr"><i class="fab fa-twitter fa-lg mr-3"></i></a>
-                    </li>
+
                 </ul>
             </div>
         </nav>
@@ -78,7 +78,7 @@ require_once 'head.php';
                                     <th>Teor Fibroso</th>
                                 </tr>
                             </thead>
-                            <tfoot>                                
+                            <tfoot>
                                 <?php 
                                 if($alimentos != null){
                                 foreach ($alimentos as $alimento) : 
@@ -93,7 +93,7 @@ require_once 'head.php';
                                     <th><?= $alimento['teor_limpidico'] ?></th>
                                     <th><?= $alimento['teor_fibroso'] ?></th>
                                 </tr>
-                            <?php endforeach; 
+                                <?php endforeach; 
                                 }
                             ?>
                             </tfoot>

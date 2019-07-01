@@ -59,7 +59,6 @@ require_once 'head.php';
                         <h1>Calcule o seu IMC</h1>
 
 
-
                         <div class="imc-main-card d-flex flex-row" class="subtitulo" data-toggle="collapse"
                             data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
 
