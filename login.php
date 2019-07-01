@@ -1,5 +1,5 @@
 <?php
-
+require_once 'head.php';
 require_once 'assets/php/classUsuario.php';
 
 session_start();
@@ -29,28 +29,8 @@ if(isset($_POST["action"])){
   }
 
 ?>
-<!doctype html>
-<html lang="pt-BR">
-
-<head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-  <!-- Bootstrap Reboot -->
-  <link rel="stylesheet" href="assets/css/bootstrap-reboot.css">
-
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <!-- Main CSS -->
-  <link rel="stylesheet" href="assets/css/style.min.css">
-  <title>Biblioteca calórica</title>
-</head>
 
 <body class="body-home">
-
-  <img class="logo" src="assets/images/diamond.svg" alt="">
   <h3 class="text-center">Mais controle.<br>
     Menos preocupação.</h3>
   <main class="landing-page">
@@ -58,14 +38,15 @@ if(isset($_POST["action"])){
     <div class="container">
       <form method="post" action="login.php" class="login" id='login'>
         <div class="form-group">
-          <label for="exampleInputEmail1">Email address</label>
-          <input type="email" id="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-            placeholder="Enter email">
+          <label for="exampleInputEmail1">Seu e-mail</label>
+          <input type="email" id="email" name="email" class="form-control" id="exampleInputEmail1"
+            aria-describedby="emailHelp" placeholder="Digite o ">
           <small id="emailHelp" class="form-text text-muted"></small>
         </div>
         <div class="form-group">
           <label for="exampleInputPassword1">Senha</label>
-          <input type="password" id="senha" name="senha" class="form-control" id="exampleInputPassword1" placeholder="Password">
+          <input type="password" id="senha" name="senha" class="form-control" id="exampleInputPassword1"
+            placeholder="Password">
         </div>
         <div class="form-check">
           <input type="checkbox" class="form-check-input" id="exampleCheck1">
