@@ -1,5 +1,11 @@
 <?php
 require_once 'assets/php/classAlimento.php';
+require_once 'assets/php/classUsuario.php';
+session_start();
+$id = (isset($_SESSION['id'])) ? $_SESSION['id'] : false;
+if ($id) {
+   $isAdmin = (new Usuario())->isAdmin($id);
+}
 $alimentos = (new Alimento())->select();
 require_once 'head.php';
 ?>

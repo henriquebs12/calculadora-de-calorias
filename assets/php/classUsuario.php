@@ -101,6 +101,20 @@ class Usuario{
 		$this->genero = $genero;
 	}
 
+	public function isAdmin(Int $id){
+		try{
+			$stmt = $this->conn->prepare("SELECT * FROM Usuario WHERE idUsuario = {$id}");
+			$stmt->execute();
+			$result = $stmt->fetch(PDO::FETCH_OBJ);
+			if(!empty($result)){
+				return $result->is_admin;
+			}
+		}catch(PDOExcecption $e){
+			echo $e->getMessage();
+			return null;
+		}
+	}
+
 	public function insert(){
 		try{
 			$stmt = $this->conn->prepare("INSERT INTO Usuario(nome, email, senha, altura, peso, data_nasc, genero, is_admin) VALUES(:nome, :email, :senha, :altura, :peso, :data_nasc, :genero, :is_admin)");
