@@ -86,10 +86,31 @@ require_once 'assets/php/database.php';
 		}
 	}
 
+	function search($item){
+		try{
+			$database = new Database();
+			$conn = $database->dbset();
+			$quant_itens = 10;
+			$sql = "SELECT `idAlimento`, `nome`,`valor_cal`, `quantidade_proteina`, `quantidade_carboidrato`, `porcao`, `teor_limpidico`, `teor_fibroso`, `Categoria` FROM `Alimento` as A JOIN `TipoAlimento` as B on A.TipoAlimento_idTipo = B.idCategoria WHERE `nome` LIKE '%{$item}%'"; 
+			$stmt = $conn->prepare($sql);
+			$stmt->execute();
+			$c = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+			echo json_encode($c); //Retorna um JSON dos alimentos
+		}catch(Exception $e){
+			echo $e->getMessage();
+			return 0;
+		}
+	}
+
 	/*chamando as funcoes*/
 
-	$filtro = $_GET['f'];
+	$filtro = (isset($_GET['f'])) ? $_GET['f'] : null;
+	$target = $_GET['item'];
 	$p = (isset($_GET['p'])) ? $_GET['p'] - 1 : 0;
+
+	if(isset($_GET['item'])){
+		return search($target);
+	}
 
 	if ($filtro == 'cal_dec' ) {
 		getAlimentosOrdemDecrescenteCalorias($p);

@@ -47,7 +47,26 @@
         $('#pesquisa').on('keyup', function(){
             $('#conteudo').html('');
             if(($('#pesquisa').val()).length >= 2){
-                console.log($('#pesquisa').val());
+                $.getJSON('filtros.php?item='+$('#pesquisa').val(), function(data){
+                    console.log(data);
+                    if(data!=null)
+                    data.forEach(function(element){
+                        $('#conteudo').append(`
+                                <tr>
+                                    <th> `+element.nome+` </th>
+                                    <th> `+element.porcao +`</th>
+                                    <th> `+element.valor_cal +`</th>
+                                    <th> `+element.quantidade_proteina +`</th>
+                                    <th> `+element.quantidade_carboidrato +`</th>
+                                    <th> `+element.teor_limpidico +`</th>
+                                    <th> `+element.teor_fibroso +`</th>
+                                    <?php if($isAdmin){ ?>
+                                    <th><button value="`+element.idAlimento+`">Editar</button><button value="`+element.idAlimento+`">Apagar</button></th>
+                                <?php }?>
+                                </tr>
+                            `);
+                    });
+                });
             }else{
                 $.getJSON('getAlimentos.php', function(data){
                     console.log(data);
