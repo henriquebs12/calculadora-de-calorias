@@ -152,6 +152,19 @@ class Usuario{
 		}
 	}
 
+
+	public function selecionar($Usuario_idUsuario,$Alimento_idAlimento){
+		try{
+			$sql = "SELECT a.nome,u.nome, ea.quantidade, ea.data, ea.horario FROM alimento a, usuario u, escolhe_alimento ea WHERE a.idAlimento = Alimento_idAlimento and ea.Usuario_idUsuario = Usuario_idUsuario";
+			$resultado = $this->conn->query($sql);
+			$row = $resultado->fetch();
+			return $row;
+		}
+		catch(PDOException $e){
+			echo $e->getMessage();
+		}
+	}
+
 }
 
 
