@@ -6,6 +6,8 @@ require_once 'assets/php/classTipoAlimento.php';
 $ali = new Alimento();
 $tipo = new TipoAlimento();
 
+echo 'oi';
+
 if (isset($_POST['action'])){
   $ali->setNome($_POST['nome']);
   $ali->setValorCal($_POST['valorCal']);
@@ -14,7 +16,6 @@ if (isset($_POST['action'])){
   $ali->setPorcao($_POST['procao']);
   $ali->setTeorLip($_POST['teorLip']);
   $ali->setTeorFib($_POST['teorFib']);
-
   $ali->insert();
 }
 
