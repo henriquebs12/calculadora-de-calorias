@@ -62,6 +62,61 @@
                         <h1 class="w-50">Alimentos consumidos</h1>
                     </div>
                 </div>
+
+                <div class="card horario my-5">
+                    <div class="card-header">
+                        <h2 class="py-4 m-0">Café da manhã</h2>
+                    </div>
+                    <div class="card-body">
+                        Arroz
+                    </div>
+                    <div class="card-footer text-muted small">
+                        Nenhum alimento foi adicionado ainda
+                    </div>
+                </div>
+
+
+                <div class="card horario my-5">
+                    <div class="card-header">
+                        <h2 class="py-4 m-0">Almoço</h2>
+                    </div>
+                    <div class="card-body">
+                        Arroz
+                    </div>
+                    <div class="card-footer text-muted small">
+                        Nenhum alimento foi adicionado ainda
+                    </div>
+                </div>
+
+
+                <div class="card horario my-5">
+                    <div class="card-header">
+                        <h2 class="py-4 m-0">Jantar</h2>
+                    </div>
+                    <div class="card-body">
+                        Arroz
+                    </div>
+                    <div class="card-footer text-muted small">
+                        Nenhum alimento foi adicionado ainda
+                    </div>
+                </div>
+
+
+                <div class="card horario my-5">
+                    <div class="card-header">
+                        <h2 class="py-4 m-0">Lanches/Outros</h2>
+                    </div>
+                    <div class="card-body">
+                        Arroz
+                    </div>
+                    <div class="card-footer text-muted small">
+                        Nenhum alimento foi adicionado ainda
+                    </div>
+                </div>
+
+
+
+
             </div>
 
             <!-- Fim da section diario -->

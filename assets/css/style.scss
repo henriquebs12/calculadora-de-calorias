@@ -491,6 +491,20 @@ button.close:focus, button.close:hover {
 
 //
 //
+// Diario
+//
+//
+
+.horario {
+    background-color: $texto-claro;
+    border-radius: $global-radius;
+    box-shadow: $global-shadow;
+    color: $fundo;
+    min-height: 100px;
+}
+
+//
+//
 // Footer
 //
 //
