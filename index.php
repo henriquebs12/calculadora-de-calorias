@@ -123,53 +123,55 @@ if(isset($_POST["action"])){
     <!-- Modal do login -->
     <div class="modal fade" id="Login-Modal" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado"
       aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
         <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-              <span aria-hidden="true">&times;</span>
+          <div class="">
+            <button type="button" title="Fechar" class="close" data-dismiss="modal" aria-label="Fechar">
+              <i aria-hidden="true" class="fas fa-times fa-lg" alt="Fechar janela de login"></i>
             </button>
           </div>
 
+          <div class="modal-body p-0 m-0">
+            <div class="container-fluid">
+              <div class="row align-items-center">
+                <div class="col-6 p-0 m-0">
+                  <img class="img-fluid img-login" src="assets/images/login-bg.jpg" alt="">
+                </div>
+                <div class="col-6 px-5">
 
-          <div class="row">
-            <div class="col-6">
-              <img class="img-fluid" src="assets/images/login-bg.jpg" alt="">
-            </div>
-            <div class="col-6">
+
+                  <h3 class="text-center mb-4">Mais controle.<br>
+                    Menos preocupação.</h3>
 
 
-              <h3 class="text-center">Mais controle.<br>
-                Menos preocupação.</h3>
-              <div class="container">
+                  <form method="post" action="login.php" class="login" id='login'>
 
-                <form method="post" action="login.php" class="login" id='login'>
-
-                  <div class="input-group form-group">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="fas fa-user"></i></span>
+                    <div class="input-group form-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                      </div>
+                      <input type="email" id="email" name="email" class="form-control" id="exampleInputEmail1"
+                        aria-describedby="emailHelp" placeholder="Seu e-mail">
                     </div>
-                    <input type="email" id="email" name="email" class="form-control" id="exampleInputEmail1"
-                      aria-describedby="emailHelp" placeholder="Seu e-mail">
-                  </div>
 
-                  <div class="input-group form-group">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="fas fa-key"></i></span>
+                    <div class="input-group form-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-key"></i></span>
+                      </div>
+                      <input type="password" id="senha" name="senha" class="form-control" id="exampleInputPassword1"
+                        placeholder="Sua senha">
                     </div>
-                    <input type="password" id="senha" name="senha" class="form-control" id="exampleInputPassword1"
-                      placeholder="Sua senha">
-                  </div>
-
-                  <input type="hidden" name="action" value="insert">
-                  <button type="submit" class="btn btn-primary">Fazer login</button>
-                </form>
+                    <div class="text-center mt-4">
+                      <input type="hidden" name="action" value="insert">
+                      <button type="submit" class=" btn btn-secundario btn-login">Fazer login</button>
+                    </div>
+                  </form>
 
 
+
+                </div>
               </div>
             </div>
-
-
           </div>
         </div>
       </div>
