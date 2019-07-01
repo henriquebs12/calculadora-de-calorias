@@ -64,6 +64,12 @@ require_once 'head.php';
                 <div class="row">
                     <div class="col-12 mt-5 text-left">
                         <h1 class="w-50 mb-5">Todos os alimentos cadastrados</h1>
+                        <form class="form-inline">
+                            <input class="form-control mr-sm-2" type="search" placeholder="Pesquisar" aria-label="Pesquisar">
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar</button>
+                        </form>
+                            </div>
+                        </div>
 
                         <table id="tabela-alimentos" class="table table-striped table-bordered" style="width:100%">
                             <thead>
@@ -76,6 +82,9 @@ require_once 'head.php';
                                     <th>Carboidratos</th>
                                     <th>Teor Limpidico</th>
                                     <th>Teor Fibroso</th>
+                                    <?php if($isAdmin){ ?>
+                                    <th>Administrar</th>
+                                <?php }?>
                                 </tr>
                             </thead>
                             <tfoot>
@@ -92,6 +101,9 @@ require_once 'head.php';
                                     <th><?= $alimento['quantidade_carboidrato'] ?></th>
                                     <th><?= $alimento['teor_limpidico'] ?></th>
                                     <th><?= $alimento['teor_fibroso'] ?></th>
+                                    <?php if($isAdmin){ ?>
+                                    <th><button>Editar</button><button>Apagar</button></th>
+                                <?php }?>
                                 </tr>
                                 <?php endforeach; 
                                 }
