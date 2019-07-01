@@ -6,7 +6,7 @@ class Database
     private $host = "localhost";
     private $db_name = "bbcal";
     private $username = "root";
-    private $password = "622110wmp";
+    private $password = "";
     public $conn;
    
     public function dbSet()
