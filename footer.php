@@ -20,20 +20,6 @@
     integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
     crossorigin="anonymous"></script>
 
-<!-- Inicializa modais que adicionam alimentos em Diario -->
-<script>
-    $('#modal-add-alimento').on('show.bs.modal', function (event) {
-        var button = $(event.relatedTarget) // Botão que acionou o modal
-        var recipient = button.data('add-alimento') // Extrai informação dos atributos data-*
-        // Se necessário, você pode iniciar uma requisição AJAX aqui e, então, fazer a atualização em um callback.
-        // Atualiza o conteúdo do modal. Nós vamos usar jQuery, aqui. No entanto, você poderia usar uma biblioteca de data
-        // binding ou outros métodos.
-        var modal = $(this)
-        modal.find('.modal-title').text('Adicionar ' + recipient)
-        modal.find('.modal-body input').val(recipient)
-    })
-</script>
-
 <!-- Inicializa tooltips -->
 <script>
     $(function () {
@@ -65,16 +51,16 @@
         });
 
 
-        $('#pesquisa').on('keyup', function () {
+        $('#pesquisa').on('keyup', function(){
             $('#conteudo').html('');
-            if ($('#pesquisa').val() >= 2) {
+            if($('#pesquisa').val() >= 2){
                 console.log($('#pesquisa').val());
-            } else {
-                $.getJSON('getAlimentos.php', function (data) {
+            }else{
+                $.getJSON('getAlimentos.php', function(data){
                     console.log(data);
-                    if (data != null)
-                        data.forEach(function (element) {
-                            $('#conteudo').append(`
+                    if(data!=null)
+                    data.forEach(function(element){
+                        $('#conteudo').append(`
                                 <tr>
                                     <th><?= $alimento['nome'] ?></th>
                                     <th><?= $alimento['porcao'] . $unidade;?></th>
@@ -88,7 +74,7 @@
                                 <?php }?>
                                 </tr>
                             `);
-                        });
+                    });
                 });
             }
         });

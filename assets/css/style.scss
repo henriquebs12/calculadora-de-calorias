@@ -284,11 +284,6 @@ a:hover {
     text-transform: uppercase;
 }
 
-.btn-cancelar, .btn-cancelar:hover {
-    border: 2px solid #656565;
-    color: #656565;
-}
-
 // CSS do sistema (Biblioteca, Calculadora e Diário)
 .imc-main-card {
     cursor: pointer;
@@ -506,40 +501,6 @@ button.close:focus, button.close:hover {
     box-shadow: $global-shadow;
     color: $fundo;
     min-height: 100px;
-}
-
-.horario h2 {
-    display: inline-block;
-}
-
-button.add-alimento {
-    -webkit-appearance: none;
-    background: transparent;
-    border: 0;
-    border-radius: 50%;
-    color: $fundo;
-    font-weight: bold;
-    height: 50px;
-    line-height: 20px;
-    margin-right: 10px;
-    transition: all ease 200ms;
-    width: 50px;
-}
-
-button.add-alimento:hover {
-    background: $primaria;
-    -webkit-box-shadow: -1px 3px 43px 0 rgba(0,0,0,0.34), 0 2px 8px rgba(0,0,0,0.05);
-            box-shadow: -1px 3px 43px 0 rgba(0,0,0,0.34), 0 2px 8px rgba(0,0,0,0.05);
-    color: #ffffff;
-}
-
-.modal-header {
-    background: $fundo;
-}
-
-.total-consumido {
-    background-color: $sombra;
-    color: $texto-claro;
 }
 
 //

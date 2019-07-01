@@ -58,80 +58,17 @@
         <section class="diario">
             <div class="container">
                 <div class="row">
-
                     <div class="col-12 mt-5 text-left">
-                        <h1 class="w-50">Alterar dia</h1>
-
-                        Mostrar calendário aqui
-
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-12 mt-5 text-left">
-                        <h1 class="w-50">Alimentos consumidos em %data%</h1>
-
-                        <div class="card horario total-consumido my-5">
-                            <div class="card-header text-center">
-                                <h2 class="py-4 m-0">Total consumido</h2>
-                            </div>
-                            <div class="card-body">
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="col">
-                                            Total de calorias
-                                        </div>
-                                        <div class="col">
-                                            Total de proteínas
-                                        </div>
-                                        <div class="col">
-                                            Total de lipídios
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-
-
+                        <h1 class="w-50">Alimentos consumidos</h1>
                     </div>
                 </div>
 
                 <div class="card horario my-5">
                     <div class="card-header">
-                        <button type="button" title="Adicionar alimento" class="add-alimento" data-toggle="modal"
-                            data-target="#modal-add-alimento" data-add-alimento="Café da manhã">
-                            <i class="fas fa-plus" alt="Adicionar alimento consumido"></i>
-                        </button>
                         <h2 class="py-4 m-0">Café da manhã</h2>
                     </div>
                     <div class="card-body">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">Alimento</th>
-                                    <th scope="col">Quantidade</th>
-                                    <th scope="col">Calorias</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Granola</td>
-                                    <td>1 colher</td>
-                                    <td>300 Kcal</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>Leite</td>
-                                    <td>1 copo</td>
-                                    <td>100 kcal</td>
-                                </tr>
-
-                            </tbody>
-                        </table>
+                        Arroz
                     </div>
                     <div class="card-footer text-muted small">
                         Nenhum alimento foi adicionado ainda
@@ -139,13 +76,8 @@
                 </div>
 
 
-
                 <div class="card horario my-5">
                     <div class="card-header">
-                        <button type="button" title="Adicionar alimento" class="add-alimento" data-toggle="modal"
-                            data-target="#modal-add-alimento" data-add-alimento="Almoço">
-                            <i class="fas fa-plus" alt="Adicionar alimento consumido"></i>
-                        </button>
                         <h2 class="py-4 m-0">Almoço</h2>
                     </div>
                     <div class="card-body">
@@ -157,35 +89,25 @@
                 </div>
 
 
-
                 <div class="card horario my-5">
                     <div class="card-header">
-                        <button type="button" title="Adicionar alimento" class="add-alimento" data-toggle="modal"
-                            data-target="#modal-add-alimento" data-add-alimento="Jantar">
-                            <i class="fas fa-plus" alt="Adicionar alimento consumido"></i>
-                        </button>
                         <h2 class="py-4 m-0">Jantar</h2>
                     </div>
                     <div class="card-body">
-                        Ovos mexidos
+                        Arroz
                     </div>
                     <div class="card-footer text-muted small">
                         Nenhum alimento foi adicionado ainda
                     </div>
                 </div>
-
 
 
                 <div class="card horario my-5">
                     <div class="card-header">
-                        <button type="button" title="Adicionar alimento" class="add-alimento" data-toggle="modal"
-                            data-target="#modal-add-alimento" data-add-alimento="Lanche/Outro">
-                            <i class="fas fa-plus" alt="Adicionar alimento consumido"></i>
-                        </button>
                         <h2 class="py-4 m-0">Lanches/Outros</h2>
                     </div>
                     <div class="card-body">
-                        Chocolate
+                        Arroz
                     </div>
                     <div class="card-footer text-muted small">
                         Nenhum alimento foi adicionado ainda
@@ -194,39 +116,9 @@
 
 
 
-                <!-- Modal para add alimentos -->
-                <div class="modal fade" id="modal-add-alimento" tabindex="-1" role="dialog"
-                    aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header px-3">
-                                <h3 class="modal-title" id="exampleModalLabel">Horário do consumo</h3>
-                            </div>
-                            <div class="modal-body p-5">
-                                <form>
-                                    <div class="form-group">
-                                        <label for="recipient-name" class="col-form-label">Horário do consumo:</label>
-                                        <input type="text" class="form-control" id="recipient-name">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="message-text" class="col-form-label">Qual alimento</label>
-                                        <small>Inserir pesquisa de alimento aqui</small>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="message-text" class="col-form-label">Qual a quantidade</label>
-                                        <small>Inserir o select de quantidade aqui</small>
-                                    </div>
-                                </form>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-primario btn-cancelar mr-3"
-                                    data-dismiss="modal">Fechar</button>
-                                <button type="button" class="btn btn-secundario">Adicionar</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
             </div>
+
             <!-- Fim da section diario -->
         </section>
         <!-- Fim da main sistema -->
