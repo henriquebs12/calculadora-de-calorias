@@ -2,6 +2,11 @@
 
 require_once 'assets/php/classUsuario.php';
 
+session_start();
+if (isset($_SESSION['id'])) {
+    header("Location: calculadora.php");
+}
+
 $login = new Usuario();
 
 if(isset($_POST["action"])){

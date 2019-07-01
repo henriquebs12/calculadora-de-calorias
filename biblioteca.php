@@ -2,6 +2,9 @@
 require_once 'assets/php/classAlimento.php';
 require_once 'assets/php/classUsuario.php';
 session_start();
+if (!isset($_SESSION['id'])) {
+    header("Location: index.php");
+}
 $id = (isset($_SESSION['id'])) ? $_SESSION['id'] : false;
 if ($id) {
    $isAdmin = (new Usuario())->isAdmin($id);

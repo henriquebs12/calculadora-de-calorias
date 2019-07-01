@@ -1,6 +1,5 @@
 <?php
 require_once 'head.php';
-
 require_once 'assets/php/classUsuario.php';
 
 $user = new Usuario();

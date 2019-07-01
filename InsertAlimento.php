@@ -1,5 +1,8 @@
 <?php
-
+session_start();
+if (!isset($_SESSION['id'])) {
+    header("Location: index.php");
+}
 require_once 'assets/php/classAlimento.php';
 require_once 'assets/php/classTipoAlimento.php';
 

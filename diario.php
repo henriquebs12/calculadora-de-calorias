@@ -3,6 +3,10 @@
     require_once 'assets/php/classUsuario.php';
     $esc_ali = new Usuario();
     $esc_ali->selecionar(1,1);
+    session_start();
+    if (!isset($_SESSION['id'])) {
+        header("Location: index.php");
+    }
 ?>
 
 
