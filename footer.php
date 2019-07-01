@@ -29,6 +29,11 @@
 
 <script>
     $(document).ready(function () {
+        $('th').find('.btn-danger').on('click', function(){
+                $.get('assets/php/deleteAlimento.php?id'+$(this).val(), function(){
+                    window.location = "biblioteca.php";
+                });
+            });
         $('#btn-calcula').click(function () {
             var resultado = 0;
             let altura = $('#altura').val();

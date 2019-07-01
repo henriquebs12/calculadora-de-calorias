@@ -132,7 +132,7 @@ class Alimento{
 
 	public function delete($id){
 		try{
-			$stmt = $this->conn->prepare("DELETE FROM `Alimento` WHERE `id` = :id");
+			$stmt = $this->conn->prepare("DELETE FROM `Alimento` WHERE `idAlimento` = :id");
 			$stmt->bindParam(":id", $id);
 			$stmt->execute();
 			return 1;
