@@ -65,7 +65,7 @@ require_once 'head.php';
                     <div class="col-12 mt-5 text-left">
                         <h1 class="w-50 mb-5">Todos os alimentos cadastrados</h1>
                         <form class="form-inline">
-                            <input class="form-control mr-sm-2" type="search" placeholder="Pesquisar" aria-label="Pesquisar">
+                            <input id="pesquisa" class="form-control mr-sm-2" type="search" placeholder="Pesquisar" aria-label="Pesquisar">
                             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar</button>
                         </form>
                             </div>
@@ -87,7 +87,7 @@ require_once 'head.php';
                                 <?php }?>
                                 </tr>
                             </thead>
-                            <tfoot>
+                            <tfoot id="conteudo">
                                 <?php 
                                 if($alimentos != null){
                                 foreach ($alimentos as $alimento) : 

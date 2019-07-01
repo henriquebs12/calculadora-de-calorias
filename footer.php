@@ -49,6 +49,35 @@
                 $('#content-calc').show("slow");
             });
         });
+
+
+        $('#pesquisa').on('keyup', function(){
+            $('#conteudo').html('');
+            if($('#pesquisa').val() >= 2){
+                console.log($('#pesquisa').val());
+            }else{
+                $.getJSON('getAlimentos.php', function(data){
+                    console.log(data);
+                    if(data!=null)
+                    data.forEach(function(element){
+                        $('#conteudo').append(`
+                                <tr>
+                                    <th><?= $alimento['nome'] ?></th>
+                                    <th><?= $alimento['porcao'] . $unidade;?></th>
+                                    <th><?= $alimento['valor_cal'] ?></th>
+                                    <th><?= $alimento['quantidade_proteina'] ?></th>
+                                    <th><?= $alimento['quantidade_carboidrato'] ?></th>
+                                    <th><?= $alimento['teor_limpidico'] ?></th>
+                                    <th><?= $alimento['teor_fibroso'] ?></th>
+                                    <?php if($isAdmin){ ?>
+                                    <th><button>Editar</button><button>Apagar</button></th>
+                                <?php }?>
+                                </tr>
+                            `);
+                    });
+                });
+            }
+        });
     });
 </script>
 
