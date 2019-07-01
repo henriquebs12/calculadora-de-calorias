@@ -174,7 +174,7 @@ require_once 'head.php';
 
                 <div class="row">
                     <div class="col-12 text-center my-5">
-                        <button id="btn-calcula" href="#" class="btn btn-secundario btn-cta">Calcular
+                        <button id="btn-calcula" href="#" class="btn btn-secundario btn-cta">Atualizar e calcular
                             <i class="fas fa-angle-right ml-2"></i>
                         </button>
                     </div>
