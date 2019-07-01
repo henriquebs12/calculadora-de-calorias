@@ -12,7 +12,7 @@
 
 
 <!-- Inlui scripts do Boostrap: jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="assets/js/jquery-3.4.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
     integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
     crossorigin="anonymous"></script>
@@ -25,13 +25,6 @@
     $(function () {
         $('[data-toggle="tooltip"]').tooltip()
     })
-</script>
-
-<!-- Inicializa datable -->
-<script>
-    $(document).ready(function () {
-        $('#tabela-alimentos').DataTable();
-    });
 </script>
 
 <script>
@@ -53,7 +46,7 @@
 
         $('#pesquisa').on('keyup', function(){
             $('#conteudo').html('');
-            if($('#pesquisa').val() >= 2){
+            if(($('#pesquisa').val()).length >= 2){
                 console.log($('#pesquisa').val());
             }else{
                 $.getJSON('getAlimentos.php', function(data){
@@ -62,15 +55,15 @@
                     data.forEach(function(element){
                         $('#conteudo').append(`
                                 <tr>
-                                    <th><?= $alimento['nome'] ?></th>
-                                    <th><?= $alimento['porcao'] . $unidade;?></th>
-                                    <th><?= $alimento['valor_cal'] ?></th>
-                                    <th><?= $alimento['quantidade_proteina'] ?></th>
-                                    <th><?= $alimento['quantidade_carboidrato'] ?></th>
-                                    <th><?= $alimento['teor_limpidico'] ?></th>
-                                    <th><?= $alimento['teor_fibroso'] ?></th>
+                                    <th> `+element.nome+` </th>
+                                    <th> `+element.porcao +`</th>
+                                    <th> `+element.valor_cal +`</th>
+                                    <th> `+element.quantidade_proteina +`</th>
+                                    <th> `+element.quantidade_carboidrato +`</th>
+                                    <th> `+element.teor_limpidico +`</th>
+                                    <th> `+element.teor_fibroso +`</th>
                                     <?php if($isAdmin){ ?>
-                                    <th><button>Editar</button><button>Apagar</button></th>
+                                    <th><button value="`+element.idAlimento+`">Editar</button><button value="`+element.idAlimento+`">Apagar</button></th>
                                 <?php }?>
                                 </tr>
                             `);
