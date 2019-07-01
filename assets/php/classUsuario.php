@@ -127,7 +127,11 @@ class Usuario{
 			$stmt->bindParam(":genero", $this->genero);
 			$stmt->bindParam(":is_admin", $this->is_admin);
 			$stmt->execute();
-			return 1;
+			$sql = "SELECT * FROM Usuario WHERE email = :email AND senha = :senha";
+			$stmt = $this->conn->prepare($sql);
+			$stmt->execute();
+			$data = $stmt->fetch(PDO::FETCH_OBJ);
+			return $data->idUsuario;
 		}catch(PDOException $e){
 			echo $e->getMessage();
 			return 0;
@@ -178,6 +182,22 @@ class Usuario{
 		}
 		catch(PDOException $e){
 			echo $e->getMessage();
+		}
+	}
+
+	public function existeConta(){
+		try{
+			$stmt = $this->conn->prepare("SELECT * FROM Usuario WHERE email = :email and senha = :senha");
+			$stmt->bindParam(":email", $this->email);
+			$stmt->bindParam(":senha", $this->senha);
+			$stmt->execute();
+			$result = $stmt->fetch(PDO::FETCH_OBJ);
+			if(!empty($result)){
+				return $result->idUsuario;
+			}
+		}catch(Exception $e){
+			echo $e->getMessage();
+			return null;
 		}
 	}
 }

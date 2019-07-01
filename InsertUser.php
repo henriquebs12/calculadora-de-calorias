@@ -13,9 +13,12 @@ if (isset($_POST['action'])){
   $user->setSenha($_POST['senha']);
   $user->setGenero($_POST['genero']);
   $user->setIs_admin($_POST['is_admin']);
-
-  if($user->insert() == 1){
+  $id = $user->insert();
+  if($id != 0){
       $result = "Vamos a calculadora!";
+      session_start();
+      $_SESSION['id'] = $id;
+      header("Location: calculadora.php");
     }else{
       $error = "Ops, algo deu errado!";
       }

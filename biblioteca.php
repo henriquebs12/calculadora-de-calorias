@@ -7,6 +7,7 @@ if ($id) {
    $isAdmin = (new Usuario())->isAdmin($id);
 }
 $alimentos = (new Alimento())->select();
+
 require_once 'head.php';
 ?>
 

@@ -1,28 +1,24 @@
 <?php
 
-require_once 'assets/php/classLogin.php';
+require_once 'assets/php/classUsuario.php';
 
-$login = new Login();
+$login = new Usuario();
 
 if(isset($_POST["action"])){
 
     $email = $_POST["email"];
     $senha = $_POST["senha"];    
 
-    $login = new Login();
+    $login = new Usuario();
     $login->setEmail($email);
     $login->setSenha($senha);
 
-    if($login->existeEmail()){
-      if($id = $login->existeConta()){
-        session_start();
-        $_SESSION['id'] = $id;
-        header("Location: membros.php");
-      }else{
-        $flag = -1;
-      }
+    if($id = $login->existeConta()){
+      session_start();
+      $_SESSION['id'] = $id;
+      header("Location: calculadora.php");
     }else{
-      $flag = 0;
+      $flag = -1;
     }
 
   }
