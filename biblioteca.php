@@ -61,21 +61,31 @@ require_once 'head.php';
                                     <th>Alimento</th>
                                     <th>Porção</th>
                                     <th>Calorias</th>
-                                    <th>Admin</th>
+                                    <th>Proteinas</th>
                                     <!-- Acima vai o botão de editar e excluir, visível apenas para o admin -->
-                                    <th>Start date</th>
-                                    <th>Salary</th>
+                                    <th>Carboidratos</th>
+                                    <th>Teor Limpidico</th>
+                                    <th>Teor Fibroso</th>
                                 </tr>
                             </thead>
-                            <tfoot>
+                            <tfoot>                                
+                                <?php 
+                                if($alimentos != null){
+                                foreach ($alimentos as $alimento) : 
+                                    $unidade = (strtolower($alimento['Categoria']) == 'solido') ? ' gr': ' ml' ;
+                                ?>
                                 <tr>
-                                    <th>Name</th>
-                                    <th>Position</th>
-                                    <th>Office</th>
-                                    <th>Extn.</th>
-                                    <th>Start date</th>
-                                    <th>Salary</th>
+                                    <th><?= $alimento['nome'] ?></th>
+                                    <th><?= $alimento['porcao'] . $unidade;?></th>
+                                    <th><?= $alimento['valor_cal'] ?></th>
+                                    <th><?= $alimento['quantidade_proteina'] ?></th>
+                                    <th><?= $alimento['quantidade_carboidrato'] ?></th>
+                                    <th><?= $alimento['teor_limpidico'] ?></th>
+                                    <th><?= $alimento['teor_fibroso'] ?></th>
                                 </tr>
+                            <?php endforeach; 
+                                }
+                            ?>
                             </tfoot>
                         </table>
 
