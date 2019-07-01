@@ -102,7 +102,7 @@ require_once 'head.php';
                                     <th><?= $alimento['teor_limpidico'] ?></th>
                                     <th><?= $alimento['teor_fibroso'] ?></th>
                                     <?php if($isAdmin){ ?>
-                                    <th><button>Editar</button><button>Apagar</button></th>
+                                    <th><button class="btn btn-primary">Editar</button><button class="btn btn-danger" style="margin-left:10px;">Apagar</button></th>
                                 <?php }?>
                                 </tr>
                                 <?php endforeach; 

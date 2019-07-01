@@ -58,18 +58,8 @@
         <section class="diario">
             <div class="container">
                 <div class="row">
-
                     <div class="col-12 mt-5 text-left">
-                        <h1 class="w-50">Alterar dia</h1>
-
-                        Mostrar calendário aqui
-
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-12 mt-5 text-left">
-                        <h1 class="w-50">Alimentos consumidos em %data%</h1>
+                        <h1 class="w-50">Total consumido</h1>
 
                         <div class="card horario total-consumido my-5">
                             <div class="card-header text-center">

@@ -154,6 +154,24 @@ class Alimento{
 			return 0;
 		}
 	}
+
+	public function escolheAlimento($alimento_id, $quantidade, $data, $horario, $usuario_id){
+		try{
+
+			$stmt = $this->conn->prepare("INSERT INTO Escolhe_Alimento(quantidade, data, horario, Usuario_idUsuario, Alimento_idAlimento) VALUES (:quantidade, :data, :horario, :usuario, :alimento)");
+			$stmt->bindParam(":alimento", $this->nome);
+			$stmt->bindParam(":quantidade", $quantidade);
+			$stmt->bindParam(":horario", $horario);
+			$stmt->bindParam(":usuario", $usuario_id);
+			$stmt->bindParam(":data", $data);
+			$stmt->execute();
+			return 1;
+
+		}catch(Exception $e){
+			echo $e->getMessage();
+			return 0;
+		}
+	}
 }
 
 ?>
