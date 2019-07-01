@@ -1,5 +1,30 @@
 <?php
 require_once 'head.php';
+require_once 'assets/php/classUsuario.php';
+session_start();
+if (isset($_SESSION['id'])) {
+    header("Location: calculadora.php");
+}
+$login = new Usuario();
+
+if(isset($_POST["action"])){
+
+    $email = $_POST["email"];
+    $senha = $_POST["senha"];    
+
+    $login = new Usuario();
+    $login->setEmail($email);
+    $login->setSenha($senha);
+
+    if($id = $login->existeConta()){
+      session_start();
+      $_SESSION['id'] = $id;
+      header("Location: calculadora.php");
+    }else{
+      $flag = -1;
+    }
+
+  }
 ?>
 
 
@@ -101,21 +126,53 @@ require_once 'head.php';
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="TituloModalCentralizado">Título do modal</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <div class="modal-body">
-            ...
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-            <button type="button" class="btn btn-primary">Salvar mudanças</button>
+
+
+          <div class="row">
+            <div class="col-6">
+              <img class="img-fluid" src="assets/images/login-bg.jpg" alt="">
+            </div>
+            <div class="col-6">
+
+
+              <h3 class="text-center">Mais controle.<br>
+                Menos preocupação.</h3>
+              <div class="container">
+
+                <form method="post" action="login.php" class="login" id='login'>
+
+                  <div class="input-group form-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="fas fa-user"></i></span>
+                    </div>
+                    <input type="email" id="email" name="email" class="form-control" id="exampleInputEmail1"
+                      aria-describedby="emailHelp" placeholder="Seu e-mail">
+                  </div>
+
+                  <div class="input-group form-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="fas fa-key"></i></span>
+                    </div>
+                    <input type="password" id="senha" name="senha" class="form-control" id="exampleInputPassword1"
+                      placeholder="Sua senha">
+                  </div>
+
+                  <input type="hidden" name="action" value="insert">
+                  <button type="submit" class="btn btn-primary">Fazer login</button>
+                </form>
+
+
+              </div>
+            </div>
+
+
           </div>
         </div>
       </div>
-    </div>
 
 
   </section>
