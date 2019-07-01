@@ -49,7 +49,7 @@ require_once 'head.php';
                 </ul>
                 <ul class="nav flex-row justify-content-md-center justify-content-start flex-nowrap">
                     <li class="nav-item">
-                        <a href="#" title="Sair" class="nav-link nav-opaco">
+                        <a href="sair.php" title="Sair" class="nav-link nav-opaco">
                             <i class="fas fa-sign-out-alt mr-3 fa-lg"></i>
                         </a>
 
