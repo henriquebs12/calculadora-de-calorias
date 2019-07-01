@@ -141,6 +141,19 @@ class Alimento{
 			return 0;
 		}
 	}
+
+	public function select() {
+		try{
+			$sql = "SELECT `idAlimento`, `nome`,`valor_cal`, `quantidade_proteina`, `quantidade_carboidrato`, `porcao`, `teor_limpidico`, `teor_fibroso`, `Categoria` FROM `Alimento` as A JOIN `TipoAlimento` as B on A.TipoAlimento_idTipo = B.idCategoria";
+			$stmt = $this->conn->prepare($sql);
+			$stmt->execute();
+			$c = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+			return $c;
+		}catch(Exception $e){
+			echo $e->getMessage();
+			return 0;
+		}
+	}
 }
 
 ?>

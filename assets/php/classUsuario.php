@@ -103,7 +103,6 @@ class Usuario{
 
 	public function insert(){
 		try{
-			echo 'teste';
 			$stmt = $this->conn->prepare("INSERT INTO Usuario(nome, email, senha, altura, peso, data_nasc, genero, is_admin) VALUES(:nome, :email, :senha, :altura, :peso, :data_nasc, :genero, :is_admin)");
 			$stmt->bindParam(":nome", $this->nome);
 			$stmt->bindParam(":email", $this->email);
