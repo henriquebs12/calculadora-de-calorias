@@ -98,13 +98,13 @@ class Usuario{
 	}
 
 	public function setGenero($genero){
-		$this->$genero = $genero;
+		$this->genero = $genero;
 	}
 
 	public function insert(){
 		try{
 			echo 'teste';
-			$stmt = $this->conn->prepare("INSERT INTO Usuario(nome, email, senha, altura, peso, data_nasc, genero, is_admin) VALUES(:nome, :altura, :email, :senha, :peso, :data_nasc, :genero, :is_admin)");
+			$stmt = $this->conn->prepare("INSERT INTO Usuario(nome, email, senha, altura, peso, data_nasc, genero, is_admin) VALUES(:nome, :email, :senha, :altura, :peso, :data_nasc, :genero, :is_admin)");
 			$stmt->bindParam(":nome", $this->nome);
 			$stmt->bindParam(":email", $this->email);
 			$stmt->bindParam(":senha", $this->senha);

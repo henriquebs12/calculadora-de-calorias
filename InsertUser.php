@@ -13,6 +13,7 @@ if (isset($_POST['action'])){
   $user->setSenha($_POST['senha']);
   $user->setGenero($_POST['genero']);
   $user->setIs_admin($_POST['is_admin']);
+
   if($user->insert() == 1){
       $result = "Vamos a calculadora!";
     }else{
@@ -75,7 +76,7 @@ if (isset($_POST['action'])){
   <main class="landing-page">
 
     <div class="container">
-      <form method="post" action="insertUser.php" class="login" id='login'>
+      <form method="post" action="InsertUser.php" class="login" id='login'>
         <div class="form-group">
           <label for="exampleInputEmail1">Email address</label>
           <input required="required" type="email" id="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
@@ -98,7 +99,7 @@ if (isset($_POST['action'])){
         </div>
         <div class="form-group">
           <label for="exampleInputPassword1">Peso</label>
-          <input required="required" type="number" id="peso" name="peso" class="form-control" id="exampleInputPassword1" placeholder="em quilos">
+          <input required="required" step="0.01" type="number" id="peso" name="peso" class="form-control" id="exampleInputPassword1" placeholder="em quilos">
         </div>
         <div class="form-group">
           <label for="exampleInputPassword1">Data de nascimento</label>
@@ -107,8 +108,8 @@ if (isset($_POST['action'])){
         <div class="form-group">
           <label for="exampleInputPassword1">Genero</label>
           <br>
-          <input type="radio" required="required" id="genero" name="genero"  value="male">M<br>
-          <input type="radio" required="required" id="genero" name="genero"  value="female">F<br>
+          <input type="radio" required="required" id="male" name="genero"  value="M">M<br>
+          <input type="radio" required="required" id="female" name="genero"  value="F">F<br>
         </div>
         <input required="required" type="hidden" name="is_admin" value=0>
         <input required="required" type="hidden" name="action" value="insert">
