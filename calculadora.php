@@ -39,13 +39,13 @@ require_once 'head.php';
 
                 </ul>
                 <ul class="nav flex-row justify-content-md-center justify-content-start flex-nowrap">
-                    <li class="nav-item"><a class="nav-link nav-opaco" target="_blank"
-                            href="https://www.facebook.com/pleasecometobr"><i
-                                class="fab fa-facebook-f mr-3 fa-lg"></i></a>
+                    <li class="nav-item">
+                        <a href="#" title="Sair" class="nav-link nav-opaco">
+                            <i class="fas fa-sign-out-alt mr-3 fa-lg"></i>
+                        </a>
+
                     </li>
-                    <li class="nav-item"><a class="nav-link nav-opaco" target="_blank"
-                            href="https://www.facebook.com/pleasecometobr"><i class="fab fa-twitter fa-lg mr-3"></i></a>
-                    </li>
+
                 </ul>
             </div>
         </nav>
@@ -143,8 +143,8 @@ require_once 'head.php';
                                 </div>
                                 <h2 class="subtitulo">Altura:</h2>
                                 <div class="input-group">
-                                    <input id="altura" type="number" class="form-control" aria-label="Qual a sua altura?" step="1"
-                                        min="1" max="300" required>
+                                    <input id="altura" type="number" class="form-control"
+                                        aria-label="Qual a sua altura?" step="1" min="1" max="300" required>
                                     <div class="input-group-append">
                                         <span class="input-group-text">cm</span>
                                     </div>
@@ -161,8 +161,8 @@ require_once 'head.php';
                                 </div>
                                 <h2 class="subtitulo">Peso:</h2>
                                 <div class="input-group">
-                                    <input id="peso" type="number" class="form-control" aria-label="Qual o seu peso?" min="1"
-                                        required>
+                                    <input id="peso" type="number" class="form-control" aria-label="Qual o seu peso?"
+                                        min="1" required>
                                     <div class="input-group-append">
                                         <span class="input-group-text">kg</span>
                                     </div>
