@@ -1,7 +1,7 @@
 <?php
     require_once 'head.php';
-    require_once 'assets/php/classEscolhe_Alimento.php';
-    $esc_ali = new Escolhe_Alimento();
+    require_once 'assets/php/classUsuario.php';
+    $esc_ali = new Usuario();
     $esc_ali->selecionar(1,1);
 ?>
 

@@ -153,6 +153,38 @@ class Usuario{
 		}
 	}
 
+	public function selecionar($Usuario_idUsuario,$Alimento_idAlimento){
+		try{
+			$stmt = $this->conn->prepare("SELECT `ea.quantidade`,`ea.data`,`ea.horario`,`u.nome`,`a.nome` FROM `alimento` a, `usuario` u, `escolhe_alimento` ea WHERE a.idAlimento = :Alimento_idAlimento and ea.Usuario_idUsuario = :Usuario_idUsuario");
+			$stmt->bindParam(":quantidade",$this->quantidade);
+			$stmt->bindParam(":data",$this->data);
+			$stmt->bindParam(":horario",$this->horario);
+			$stmt->bindParam(":nome",$this->Usuario_idUsuario);
+			$stmt->bindParam(":nome",$this->Alimento_idAlimento);
+			$stmt->execute();
+			$row = $stmt->fetch(PDO::FETCH_OBJ);
+			return $row;
+		}
+		catch(PDOException $e){
+			echo $e->getMessage();
+			return 0;
+		}
+	}
+
+
+	public function selecionar($Usuario_idUsuario,$Alimento_idAlimento){
+		try{
+			$sql = "SELECT a.nome,u.nome, ea.quantidade, ea.data, ea.horario FROM alimento a, usuario u, escolhe_alimento ea WHERE a.idAlimento = Alimento_idAlimento and ea.Usuario_idUsuario = Usuario_idUsuario";
+			$resultado = $this->conn->query($sql);
+			while($row = $resultado->fetch()) {
+        		echo $row[0] . " - " . $row[1] . " - " . $row[2] . " - " . $row[3] . " - " . $row[4];
+        	}
+		}
+		catch(PDOException $e){
+			echo $e->getMessage();
+		}
+	}
+
 }
 
 
