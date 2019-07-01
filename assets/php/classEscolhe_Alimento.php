@@ -4,8 +4,8 @@
 	require_once "database.php";
 
 	class Escolhe_Alimento{
-		private $usuario_id_usuario;
-		private $alimento_id_alimento;
+		private $Usuario_idUsuario;
+		private $Alimento_idAlimento;
 		private $quantidade;
 		private $data;
 		private $horario;
@@ -17,39 +17,39 @@
 		$this->conn = $dbset;
 	}
 
-	function getUsuario_Id_Usuario(){
-		return $this->usuario_id_usuario;
+	public function getUsuario_idUsuario(){
+		return $this->Usuario_idUsuario;
 	}
 
-	function getAlimento_Id_Alimento(){
-		return $this->alimento_id_alimento;
+	public function getAlimento_idAlimento(){
+		return $this->Alimento_idAlimento;
 	}
 
-	function getQuantidade(){
+	public function getQuantidade(){
 		return $this->quantidade;
 	}
 
-	function getData(){
+	public function getData(){
 		return $this->data;
 	}
 
-	function getHorario(){
+	public function getHorario(){
 		return $this->horario;
 	}
 
-	function setUsuario_Id_Usuario($usuario_id_usuario){
-		$this->usuario_id_usuario = $usuario_id_usuario;
+	public function setUsuario_idUsuario($Usuario_idUsuario){
+		$this->Usuario_idUsuario = $Usuario_idUsuario;
 	}
 
-	function setAlimento_Id_Alimento($alimento_id_alimento){
-		$this->alimento_id_alimento = $alimento_id_alimento;
+	public function setAlimento_idAlimento($Alimento_idAlimento){
+		$this->Alimento_idAlimento = $Alimento_idAlimento;
 	}
 
-	function setQuantidade($quantidade){
+	public function setQuantidade($quantidade){
 		$this->quantidade = $quantidade;
 	}
 
-	function setData($data){
+	public function setData($data){
 		$this->data = $data;
 	}
 
@@ -57,11 +57,17 @@
 		$this->horario = $horario;
 	}
 
-	public function selecionar($usuario_id_usuario,$alimento_id_alimento){
+	public function selecionar($Usuario_idUsuario,$Alimento_idAlimento){
 		try{
-			$stmt = $this->conn->prepare("SELECT ea.quantidade,ea.data,ea.horario,u.nome,a.nome FROM alimento a, usuario u, escolhe_alimento ea WHERE a.idAlimento = ea.Alimento_idAlimento and ea.Usuario_idUsuario = u.idUsuario");
+			$stmt = $this->conn->prepare("SELECT ea.quantidade,ea.data,ea.horario,u.nome,a.nome FROM alimento a, usuario u, escolhe_alimento ea WHERE a.idAlimento = :Alimento_idAlimento and ea.Usuario_idUsuario = :Usuario_idUsuario");
+			$stmt->bindParam(":quantidade",$this->quantidade);
+			$stmt->bindParam(":data",$this->data);
+			$stmt->bindParam(":horario",$this->horario);
+			$stmt->bindParam(":nome",$this->Usuario_idUsuario);
+			$stmt->bindParam(":nome",$this->Alimento_idAlimento);
 			$stmt->execute();
-			return $stmt;
+			$row = $stmt->fetch(PDO::FETCH_OBJ);
+			return $row;
 		}
 		catch(PDOException $e){
 			echo $e->getMessage();
