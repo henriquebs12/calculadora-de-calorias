@@ -6,13 +6,13 @@ $user = new Usuario();
 
 if (isset($_POST['action'])){
   $user->setNome($_POST['nome']);
-  $user->setAltura($_POST['altura']);
+  $user->setAltura(floatval(str_replace(',', '.', $_POST['altura'])));
   $user->setPeso($_POST['peso']);
   $user->setData($_POST['data']);  
   $user->setEmail($_POST['email']);
   $user->setSenha($_POST['senha']);
   $user->setGenero($_POST['genero']);
-  $user->setIs_admin($_POST['isadmin']);
+  $user->setIs_admin($_POST['is_admin']);
   if($user->insert() == 1){
       $result = "Vamos a calculadora!";
     }else{
@@ -75,7 +75,7 @@ if (isset($_POST['action'])){
   <main class="landing-page">
 
     <div class="container">
-      <form method="get" action="insertUser.php" class="login" id='login'>
+      <form method="post" action="insertUser.php" class="login" id='login'>
         <div class="form-group">
           <label for="exampleInputEmail1">Email address</label>
           <input required="required" type="email" id="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
@@ -94,7 +94,7 @@ if (isset($_POST['action'])){
         </div>
         <div class="form-group">
           <label for="exampleInputPassword1">Altura</label>
-          <input required="required" type="number" id="altura" name="altura" class="form-control" id="exampleInputPassword1" placeholder="Em centimetros">
+          <input required="required" step="0.01" type="number" id="altura" name="altura" class="form-control" id="exampleInputPassword1" placeholder="Em centimetros">
         </div>
         <div class="form-group">
           <label for="exampleInputPassword1">Peso</label>
@@ -104,7 +104,13 @@ if (isset($_POST['action'])){
           <label for="exampleInputPassword1">Data de nascimento</label>
           <input required="required" type="date" id="data" name="data" class="form-control" id="exampleInputPassword1" placeholder="Password">
         </div>
-        <input required="required" type="hidden" name="isadmin" value=0>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Genero</label>
+          <br>
+          <input type="radio" required="required" id="genero" name="genero"  value="male">M<br>
+          <input type="radio" required="required" id="genero" name="genero"  value="female">F<br>
+        </div>
+        <input required="required" type="hidden" name="is_admin" value=0>
         <input required="required" type="hidden" name="action" value="insert">
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
@@ -140,11 +146,3 @@ if (isset($_POST['action'])){
 
 </html>
 
-email=t%40cmo.com&
-senha=123123&
-nome=thiago&
-altura=123&
-peso=123&
-data=1994-03-22&
-isadmin=0&
-action=insert

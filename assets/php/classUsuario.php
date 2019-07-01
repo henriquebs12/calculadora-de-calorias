@@ -4,13 +4,15 @@ require_once 'database.php';
 
 class Usuario{
 
-	 private $id; 
+	 private $idUsuario; 
 	 private $nome;
 	 private $altura;
 	 private $peso;
 	 private $data_nasc;
 	 private $email;
 	 private $senha;
+	 private $genero;
+	 private $is_admin;
 
 	 public function __construct(){
 		$database = new Database();
@@ -18,8 +20,8 @@ class Usuario{
 		$this->conn = $dbset;
 	}
 
-	public function getId(){
-		return $this->id;
+	public function getidUsuario(){
+		return $this->idUsuario;
 	}
 
 	public function getNome(){
@@ -54,8 +56,8 @@ class Usuario{
 		return $this->genero;
 	}
 
-	public function setId($id){
-		$this->id = $id;
+	public function setidUsuario($idUsuario){
+		$this->idUsuario = $idUsuario;
 	}
 
 	public function setNome($nome){
@@ -101,7 +103,8 @@ class Usuario{
 
 	public function insert(){
 		try{
-			$stmt = $this->conn->prepare("INSERT INTO Usuario(nome, email, senha, altura, peso, data_nasc, genero, is_admin) VALUES(:nome, :altura, :email, :senha :peso, :data_nasc, :genero, :is_admin)");
+			echo 'teste';
+			$stmt = $this->conn->prepare("INSERT INTO Usuario(nome, email, senha, altura, peso, data_nasc, genero, is_admin) VALUES(:nome, :altura, :email, :senha, :peso, :data_nasc, :genero, :is_admin)");
 			$stmt->bindParam(":nome", $this->nome);
 			$stmt->bindParam(":email", $this->email);
 			$stmt->bindParam(":senha", $this->senha);
@@ -120,8 +123,8 @@ class Usuario{
 
 	public function edit(){
 		try{
-			$stmt = $this->conn->prepare("UPDATE Usuario SET nome = :nome, email = :email, senha = :senha, altura = :altura, peso = :peso, data_nasc= :data_nasc, genero = :genero, is_adin = :is_admin WHERE id = :id");
-			$stmt->bindParam(":id", $this->id);
+			$stmt = $this->conn->prepare("UPDATE Usuario SET nome = :nome, email = :email, senha = :senha, altura = :altura, peso = :peso, data_nasc= :data_nasc, genero = :genero, is_adin = :is_admin WHERE idUsuario = :idUsuario");
+			$stmt->bindParam(":idUsuario", $this->idUsuario);
 			$stmt->bindParam(":nome", $this->nome);
 			$stmt->bindParam(":email", $this->email);
 			$stmt->bindParam(":senha", $this->senha);
@@ -138,10 +141,10 @@ class Usuario{
 		}
 	}
 
-	public function delete($id){
+	public function delete($idUsuario){
 		try{
-			$stmt = $this->conn->prepare("DELETE FROM `Usuario` WHERE `id` = :id");
-			$stmt->bindParam(":id", $id);
+			$stmt = $this->conn->prepare("DELETE FROM `Usuario` WHERE `idUsuario` = :idUsuario");
+			$stmt->bindParam(":idUsuario", $idUsuario);
 			$stmt->execute();
 			return 1;
 		}catch(PDOExcecption $e){
