@@ -7,11 +7,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Thiago: To testando isso. PS: Eu que coloquei -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
-      
-    </script>
-
     <!-- Bootstrap Reboot -->
     <link rel="stylesheet" href="assets/css/bootstrap-reboot.css">
 
@@ -23,5 +18,9 @@
     <!-- FontAwesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
         integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+
+    <!-- CSS do datable -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+
     <title>Nutristable</title>
 </head>

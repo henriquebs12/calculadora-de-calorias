@@ -51,7 +51,33 @@ require_once 'head.php';
             <div class="container">
                 <div class="row">
                     <div class="col-12 mt-5 text-left">
-                        <h1 class="w-50">Todos os alimentos cadastrados</h1>
+                        <h1 class="w-50 mb-5">Todos os alimentos cadastrados</h1>
+
+                        <table id="tabela-alimentos" class="table table-striped table-bordered" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th>Alimento</th>
+                                    <th>Porção</th>
+                                    <th>Calorias</th>
+                                    <th>Admin</th>
+                                    <!-- Acima vai o botão de editar e excluir, visível apenas para o admin -->
+                                    <th>Start date</th>
+                                    <th>Salary</th>
+                                </tr>
+                            </thead>
+                            <tfoot>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Position</th>
+                                    <th>Office</th>
+                                    <th>Extn.</th>
+                                    <th>Start date</th>
+                                    <th>Salary</th>
+                                </tr>
+                            </tfoot>
+                        </table>
+
+
                     </div>
                 </div>
             </div>
