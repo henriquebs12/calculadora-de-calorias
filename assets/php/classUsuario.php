@@ -140,6 +140,14 @@ class Usuario{
 		}
 	}
 
+	public function view($id){
+        $stmt = $this->conn->prepare("SELECT * FROM `Usuario` WHERE `idUsuario` LIKE '%" . $id . "%'");
+        $stmt->bindParam(":id", $this->idUsuario);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_OBJ);
+        
+    }
+
 	public function edit(){
 		try{
 			$stmt = $this->conn->prepare("UPDATE Usuario SET nome = :nome, email = :email, senha = :senha, altura = :altura, peso = :peso, data_nasc= :data_nasc, genero = :genero, is_adin = :is_admin WHERE idUsuario = :idUsuario");

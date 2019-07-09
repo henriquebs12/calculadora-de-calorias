@@ -4,6 +4,42 @@ if (!isset($_SESSION['id'])) {
     header("Location: index.php");
 }
 require_once 'head.php';
+require_once 'assets/php/classUsuario.php';
+
+$usuario = $_SESSION['id'];
+
+$user = new Usuario();
+
+$info = $user->view($usuario);
+
+
+foreach ($info as $key => $value) {
+    if($key=='altura'){
+        $alt = $value/100;
+    }
+    if($key=='peso'){
+        $pes = $value;
+    }
+}
+
+$imc = ($pes/($alt*$alt));
+
+if($imc > 40){
+    $alert = 'Você está no grau de obesidade tipo 3!';
+}else if($imc > 35 ){
+    $alert = 'Você está no grau de obesidade tipo 2!';
+}else if($imc > 30){
+    $alert = 'Você está no grau de obesidade tipo 1!';
+}else if($imc > 25){
+    $alert = 'Você está com sobrepeso!';
+}else if($imc > 20){
+    $alert = 'Você está com o peso ideal!';
+}else if($imc < 18){
+    $alert = 'Você está abaixo do peso!';
+}
+
+
+
 ?>
 
 <body>
@@ -88,99 +124,33 @@ require_once 'head.php';
             <div class="container px-5 px-md-0">
                 <div class="row mt-5" id="content-calc">
 
-                    <div class="col-12 col-md-6 col-lg-3">
+                    <div class="col-12 col-md-6 col-lg-6">
                         <div class="imc-card-white d-flex justify-content-center flex-column">
                             <div class="number d-flex align-items-center justify-content-center">
-                                <span>1</span>
+                                <span><i class="fas fa-info"></i></span>
                             </div>
 
-                            <h2 class="subtitulo">Como você se identifica:</h2>
+                            <h2 class="subtitulo">Seu Indicie de Massa Corporea é:</h2>
 
-                            <div class="gender-box d-flex flex-row justify-content-center">
-                                <input class="form-check-input gender-input female" type="radio" name="gender-checkobox"
-                                    id="female" value="f">
-                                <label class="form-check-label gender-label" for="female" data-html="true"
-                                    data-toggle="tooltip" data-placement="bottom"
-                                    title="Mocinha ou<br/>Mocinha <i>trans</i>">
-                                    <i class="fas fa-female mr-2"></i>
-                                </label>
+                            <h2 class="form-control"><?php echo $imc; ?></h2>
 
-                                <input class="form-check-input gender-input male" type="radio" name="gender-checkobox"
-                                    id="male" value="m" required>
-                                <label class="form-check-label gender-label" for="male" data-html="true"
-                                    data-toggle="tooltip" data-placement="bottom"
-                                    title="Mocinho ou<br/>Mocinho <i>trans</i>">
-                                    <i class="fas fa-male mr-2"></i>
-                                </label>
-                            </div>
+                            
+
+                            
                         </div>
                     </div>
 
-                    <div class="col-12 col-md-6 col-lg-3">
+                    <div class="col-12 col-md-6 col-lg-6">
                         <div class="imc-card-white d-flex justify-content-center flex-column">
-                            <div class="imc-row">
-                                <div class="number d-flex align-items-center justify-content-center">
-                                    <span>2</span>
-                                </div>
-                                <h2 class="subtitulo">Idade:</h2>
-                                <div class="input-group">
-                                    <input type="number" class="form-control" aria-label="Qual a sua idade?" step="1"
-                                        min="1" max="120" required>
-                                    <div class="input-group-append">
-                                        <span class="input-group-text">anos</span>
-                                    </div>
-                                </div>
+                            <div class="number d-flex align-items-center justify-content-center">
+                                <span><i class="fas fa-exclamation-triangle"></i></span>
                             </div>
+                            <h2 class="subtitulo"><?php echo $alert ?></h2>                  
                         </div>
                     </div>
 
-                    <div class="col-12 col-md-6 col-lg-3">
-                        <div class="imc-card-white d-flex justify-content-center flex-column">
-                            <div class="imc-row">
-                                <div class="number d-flex align-items-center justify-content-center">
-                                    <span>3</span>
-                                </div>
-                                <h2 class="subtitulo">Altura:</h2>
-                                <div class="input-group">
-                                    <input id="altura" type="number" class="form-control"
-                                        aria-label="Qual a sua altura?" step="1" min="1" max="300" required>
-                                    <div class="input-group-append">
-                                        <span class="input-group-text">cm</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-12 col-md-6 col-lg-3">
-                        <div class="imc-card-white d-flex justify-content-center flex-column">
-                            <div class="imc-row">
-                                <div class="number d-flex align-items-center justify-content-center">
-                                    <span>4</span>
-                                </div>
-                                <h2 class="subtitulo">Peso:</h2>
-                                <div class="input-group">
-                                    <input id="peso" type="number" class="form-control" aria-label="Qual o seu peso?"
-                                        min="1" required>
-                                    <div class="input-group-append">
-                                        <span class="input-group-text">kg</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Fim da row -->
                 </div>
 
-                <div class="row">
-                    <div class="col-12 text-center my-5">
-                        <button id="btn-calcula" href="#" class="btn btn-secundario btn-cta">Atualizar e calcular
-                            <i class="fas fa-angle-right ml-2"></i>
-                        </button>
-                    </div>
-                </div>
-                <!-- Fim do container -->
-            </div>
             <!--Termina section calculadora -->
         </section>
 

@@ -109,7 +109,7 @@ if(isset($_POST["action"])){
             <div class="hero-acoes mt-5">
               <a href="login.php" class="btn btn-primario" data-target="#Login-Modal" data-toggle="modal">Fazer
                 login</a>
-              <a href="InsertUser.php" class="btn btn-secundario ml-3">Criar uma conta</a>
+              <a href="cadastroDeUsuario.php" class="btn btn-secundario ml-3">Criar uma conta</a>
             </div>
           </div>
         </div>
@@ -144,7 +144,7 @@ if(isset($_POST["action"])){
                     Menos preocupação.</h3>
 
 
-                  <form method="post" action="login.php" class="login" id='login'>
+                  <form method="post" action="index.php" class="login" id='login'>
 
                     <div class="input-group form-group">
                       <div class="input-group-prepend">

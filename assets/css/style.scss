@@ -4,6 +4,7 @@ $primaria: #e21b5a;
 $secundaria: #83a300;
 $sombra: #333333;
 $fundo: #272c51;
+$binari: #C8A2C8;
 $fonte-titulo: 'Metropolis';
 $font-size-padrao: 1.6rem;
 $global-radius: 8px;
@@ -390,6 +391,11 @@ a:hover {
 .gender-input.female:checked + label {
     color: $fundo;
     text-shadow: 0 10px 10px rgba($fundo, 0.2);
+}
+
+.gender-input.bin:checked + label {
+    color: $binari;
+    text-shadow: 0 10px 10px rgba($binari, 0.2);
 }
 
 .tooltip-inner {
