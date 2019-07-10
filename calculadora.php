@@ -72,6 +72,12 @@ if($imc > 40){
                             Meu Diário
                         </li>
                     </a>
+                    <a class="nav-link" href="perfil.php">
+                        <li class="nav-item d-flex flex-column mx-3">
+                            <i class="fas fa-user-circle fa-lg pb-3"></i></i>
+                            Perfil
+                        </li>
+                    </a>
 
                 </ul>
                 <ul class="nav flex-row justify-content-md-center justify-content-start flex-nowrap">
@@ -129,14 +135,8 @@ if($imc > 40){
                             <div class="number d-flex align-items-center justify-content-center">
                                 <span><i class="fas fa-info"></i></span>
                             </div>
-
                             <h2 class="subtitulo">Seu Indicie de Massa Corporea é:</h2>
-
-                            <h2 class="form-control"><?php echo $imc; ?></h2>
-
-                            
-
-                            
+                            <h2 class="form-control"><?php echo $imc; ?> Kg/m²</h2>
                         </div>
                     </div>
 
@@ -150,6 +150,7 @@ if($imc > 40){
                     </div>
 
                 </div>
+            </div>
 
             <!--Termina section calculadora -->
         </section>

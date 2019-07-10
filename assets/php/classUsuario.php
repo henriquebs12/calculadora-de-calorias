@@ -148,9 +148,11 @@ class Usuario{
         
     }
 
+   
+
 	public function edit(){
 		try{
-			$stmt = $this->conn->prepare("UPDATE Usuario SET nome = :nome, email = :email, senha = :senha, altura = :altura, peso = :peso, data_nasc= :data_nasc, genero = :genero, is_adin = :is_admin WHERE idUsuario = :idUsuario");
+			$stmt = $this->conn->prepare("UPDATE Usuario SET nome = :nome, email = :email, senha = :senha, altura = :altura, peso = :peso, data_nasc= :data_nasc, genero = :genero, is_admin = :is_admin WHERE idUsuario = :idUsuario");
 			$stmt->bindParam(":idUsuario", $this->idUsuario);
 			$stmt->bindParam(":nome", $this->nome);
 			$stmt->bindParam(":email", $this->email);

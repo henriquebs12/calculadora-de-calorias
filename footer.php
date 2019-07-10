@@ -28,40 +28,7 @@
 </script>
 
 <script>
-    $(document).ready(function () {
-        $('th').find('.btn-danger').on('click', function(){
-                $.get('assets/php/deleteAlimento.php?id='+$(this).val(), function(){
-                    window.location = "biblioteca.php";
-                });
-            });
-        $('#btn-calcula').click(function () {
-            var resultado = 0;
-            let altura = $('#altura').val();
-            altura = altura / 100;
-            let peso = $('#peso').val();
-            if(altura != '' & peso != '' & altura != 0 & peso != 0){
-                resultado = (peso) / (altura * altura);
-                if(resultado<18.5){
-                    var mensagem = "Abaixo do peso";
-                }else if(resultado<=24.9){
-                    var mensagem = "Peso Normal";
-                }else if(resultado<=29.9){
-                    var mensagem = "Sobrepeso";
-                }else if(resultado<=34.9){
-                    var mensagem = "Obesidade grau 1";
-                }else if(resultado <= 39.9){
-                    var mensagem = "Obesidade grau 2";
-                }else{
-                    var mensagem = "Obesidade grau 3";
-                }
-                $('#content-calc').hide("slow", function () {
-                    $('#content-calc').html('');
-                    $('#content-calc').append('<div class="col-12 col-md-6 col-lg-5 col-lg-offset-6"></div><div class="imc-card-white d-flex justify-content-center flex-column"><div class="number d-flex align-items-center justify-content-center"><span>5</span></div><h2 class="subtitulo">Resultado<br> Seu IMC é: ' + resultado.toFixed(2) + '</h2><br>'+mensagem+'</div></div>');
-                    $('#btn-calcula').hide();
-                    $('#content-calc').show("slow");
-                });
-            }
-        });
+    
 
 
         $('#pesquisa').on('keyup', function(){

@@ -45,6 +45,12 @@ require_once 'head.php';
                             Meu Diário
                         </li>
                     </a>
+                    <a class="nav-link" href="perfil.php">
+                        <li class="nav-item d-flex flex-column mx-3">
+                            <i class="fas fa-user-circle fa-lg pb-3"></i></i>
+                            Perfil
+                        </li>
+                    </a>
 
                 </ul>
                 <ul class="nav flex-row justify-content-md-center justify-content-start flex-nowrap">
